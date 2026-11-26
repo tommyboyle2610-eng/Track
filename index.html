@@ -29,8 +29,8 @@
       }
       :root {
         --bg: #030705;
-        --card: #08100c8c;
-        --card-hover: #0e1c14b8;
+        --card: #08100cd9;
+        --card-hover: #0e1c14eb;
         --line: #ffffff0f;
         --font-main: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         --line-glow: #00ff884d;
@@ -44,7 +44,7 @@
         --red: #f43f5e;
         --amb: #f59e0b;
         --cyan: #22d3ee;
-        --sol: #060d09f0;
+        --sol: #060d09f5;
         --r: 24px;
         --ease-out: cubic-bezier(.16, 1, .3, 1);
         --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
@@ -57,12 +57,12 @@
       }
       body.light {
         --bg: #f0fdf4;
-        --card: #ffffffc7;
-        --card-hover: #fffffff2;
+        --card: #ffffffe6;
+        --card-hover: #fffffff7;
         --line: #10b98126;
         --tx: #052e16;
         --mu: #475569;
-        --sol: #fffffff5;
+        --sol: #fffffff8;
       }
       html {
         scroll-behavior: smooth;
@@ -125,21 +125,21 @@
       }
       header {
         z-index: 50;
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
-        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--line);
-        background: #020604bf;
+        background: #020604e0;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         gap: 12px;
         padding: 12px 24px;
-        transition: border-color .3s, background-color .4s;
+        transition: border-color .3s, background-color .35s;
         display: flex;
         position: sticky;
         top: 0;
       }
-      body.light header { background: #ffffffd1; }
+      body.light header { background: #ffffffeb; }
       h1, h2, h3, h4 { margin: 0; font-weight: 800; }
       h1 { letter-spacing: -.02em; font-size: 20px; }
       h3 {
@@ -160,7 +160,7 @@
         color: var(--tx);
         cursor: pointer;
         font: 700 12px var(--font-main);
-        transition: all .25s var(--ease-out);
+        transition: all .22s var(--ease-out);
         white-space: nowrap;
         background: #ffffff08;
         border: 1px solid #ffffff14;
@@ -202,10 +202,8 @@
       .amb-btn { color: var(--amb); background: #f59e0b14; border-color: #f59e0b59; }
       .amb-btn:hover { border-color: var(--amb); background: #f59e0b2e; }
       nav {
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
         scrollbar-width: none;
-        background: #08100ca6;
+        background: #08100cd9;
         border: 1px solid #ffffff12;
         border-radius: 9999px;
         align-items: center;
@@ -215,7 +213,7 @@
         display: flex;
         overflow-x: auto;
       }
-      body.light nav { background: #ffffffd9; border-color: #10b9812e; }
+      body.light nav { background: #ffffffeb; border-color: #10b9812e; }
       nav::-webkit-scrollbar { display: none; }
       nav .b {
         box-shadow: none;
@@ -256,18 +254,16 @@
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: var(--r);
-        -webkit-backdrop-filter: blur(24px);
-        backdrop-filter: blur(24px);
-        transition: all .35s var(--ease-out);
+        transition: transform .28s var(--ease-out), border-color .28s var(--ease-out), background-color .28s var(--ease-out);
         padding: 20px 22px;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 10px 32px -10px #00000059;
+        box-shadow: 0 8px 24px -10px #00000059;
       }
       .card:hover {
         background: var(--card-hover);
         border-color: color-mix(in srgb, var(--ac) 35%, transparent);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
       }
       .card small {
         color: var(--mu);
@@ -302,7 +298,7 @@
         height: 42px;
         padding: 2px;
         display: flex;
-        box-shadow: 0 0 20px color-mix(in srgb, var(--ac) 25%, transparent);
+        box-shadow: 0 0 16px color-mix(in srgb, var(--ac) 22%, transparent);
         transition: transform .3s var(--ease-bounce);
         flex-shrink: 0;
         overflow: hidden;
@@ -394,11 +390,7 @@
         background: var(--grad);
         color: #030705;
         border-color: var(--ac);
-        animation: 2.5s ease-in-out infinite pulseGlow;
-      }
-      @keyframes pulseGlow {
-        0%, to { box-shadow: 0 0 12px color-mix(in srgb, var(--ac) 40%, transparent); }
-        50% { box-shadow: 0 0 26px color-mix(in srgb, var(--ac) 80%, transparent); }
+        box-shadow: 0 0 14px color-mix(in srgb, var(--ac) 50%, transparent);
       }
       .bd {
         color: var(--ac);
@@ -461,7 +453,7 @@
       }
       .wrap {
         border: 1px solid var(--line);
-        background: #04090699;
+        background: #040906c2;
         border-radius: 20px;
         overflow-x: auto;
       }
@@ -537,12 +529,12 @@
         border-color: #4f46e552;
         color: #4f46e5 !important;
       }
-      .sc.sc-pending { border-color: #f59e0b6b; box-shadow: 0 10px 34px -10px #f59e0b2e; }
-      .sc.sc-pending:hover { border-color: #f59e0bb8; box-shadow: 0 20px 40px -15px #f59e0b40; }
+      .sc.sc-pending { border-color: #f59e0b6b; box-shadow: 0 8px 24px -10px #f59e0b2e; }
+      .sc.sc-pending:hover { border-color: #f59e0bb8; box-shadow: 0 14px 30px -12px #f59e0b40; }
       .sc.sc-instock { border-color: #22d3ee38; }
       .sc.sc-instock:hover { border-color: #22d3ee8c; }
-      .sc.sc-delivery { border-color: #818cf86b; box-shadow: 0 10px 34px -10px #818cf82e; }
-      .sc.sc-delivery:hover { border-color: #818cf8b8; box-shadow: 0 20px 40px -15px #818cf83d; }
+      .sc.sc-delivery { border-color: #818cf86b; box-shadow: 0 8px 24px -10px #818cf82e; }
+      .sc.sc-delivery:hover { border-color: #818cf8b8; box-shadow: 0 14px 30px -12px #818cf83d; }
       .sep.sep-delivery { color: #818cf8; }
       .sep.sep-delivery:before, .sep.sep-delivery:after { background: #818cf847; }
       .b.deliv-btn { color: #818cf8; background: #818cf81a; border-color: #818cf86b; }
@@ -554,12 +546,12 @@
         border: 1px solid color-mix(in srgb, var(--ac) 30%, var(--line));
         width: min(620px, 94vw);
         max-height: 90vh;
-        box-shadow: 0 30px 90px -20px #000000d9, 0 0 40px -10px color-mix(in srgb, var(--ac) 15%, transparent);
+        box-shadow: 0 24px 64px -16px #000000d9;
         border-radius: 24px;
         margin: auto;
         padding: 24px;
         overflow: auto;
-        animation: popModal .32s var(--ease-bounce);
+        animation: popModal .28s var(--ease-bounce);
       }
       dialog.dlg-shell { flex-direction: column; padding: 0; display: flex; overflow: hidden; }
       dialog.dlg-shell:not([open]) { display: none; }
@@ -605,7 +597,7 @@
         .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
         .dlg-header, .dlg-body, .dlg-footer { padding-left: 16px; padding-right: 16px; }
       }
-      dialog::backdrop { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); background: #020604c7; animation: .25s fadeIn; }
+      dialog::backdrop { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); background: #020604c7; animation: .2s fadeIn; }
       dialog label {
         color: var(--mu);
         text-transform: uppercase;
@@ -633,9 +625,9 @@
       .leg u { border-radius: 3px; width: 10px; height: 10px; margin-right: 6px; text-decoration: none; display: inline-block; }
       .hb { margin: 10px 0; }
       .hb div { justify-content: space-between; font-size: 13px; display: flex; }
-      .hb i { background: var(--grad); transform-origin: 0; height: 8px; animation: growHoriz .9s var(--ease-out) both; border-radius: 6px; margin-top: 5px; display: block; }
+      .hb i { background: var(--grad); transform-origin: 0; height: 8px; animation: growHoriz .8s var(--ease-out) both; border-radius: 6px; margin-top: 5px; display: block; }
       .donut { align-items: center; gap: 24px; display: flex; }
-      .ring { width: 130px; height: 130px; animation: spinDonut 1.2s var(--ease-out) both; border-radius: 50%; flex: none; place-items: center; display: grid; }
+      .ring { width: 130px; height: 130px; animation: spinDonut 1s var(--ease-out) both; border-radius: 50%; flex: none; place-items: center; display: grid; }
       .ring:after { content: attr(data-c); background: var(--sol); border-radius: 50%; place-items: center; width: 86px; height: 86px; font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 800; display: grid; box-shadow: inset 0 2px 8px #0006; }
       .note { color: var(--mu); margin-top: 6px; font-size: 12px; }
       .ph { margin-bottom: 22px; }
@@ -650,18 +642,16 @@
       .jc, .sc {
         background: var(--card);
         border: 1px solid var(--line);
-        transition: all .32s var(--ease-out);
-        -webkit-backdrop-filter: blur(24px);
-        backdrop-filter: blur(24px);
+        transition: transform .28s var(--ease-out), border-color .28s var(--ease-out), background-color .28s var(--ease-out);
         border-radius: 24px;
         margin-bottom: 14px;
         padding: 18px 22px;
-        box-shadow: 0 8px 32px #00000040;
+        box-shadow: 0 6px 24px #00000038;
       }
       .jc:hover, .sc:hover {
         background: var(--card-hover);
         border-color: color-mix(in srgb, var(--ac) 35%, transparent);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
       }
       .jr, .ja { flex-wrap: wrap; align-items: center; gap: 12px; display: flex; }
       .ja { gap: 8px; }
@@ -676,7 +666,6 @@
         font-size: 13px;
         font-weight: 800;
         display: grid;
-        box-shadow: inset 0 0 12px color-mix(in srgb, var(--ac) 15%, transparent);
         font-family: "JetBrains Mono", monospace;
       }
       .jm { flex-direction: column; flex: 1; gap: 3px; min-width: 200px; display: flex; }
@@ -789,11 +778,9 @@
       #lock-screen {
         z-index: 9999;
         background-color: #030705;
-        background-image: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--ac) 16%, transparent), transparent 70%), radial-gradient(#ffffff0f 1px, transparent 1px);
+        background-image: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--ac) 16%, transparent), transparent 70%);
         position: fixed;
         inset: 0;
-        background-size: 100% 100%, 28px 28px;
-        background-attachment: fixed;
         justify-content: center;
         align-items: center;
         transition: opacity .3s, visibility .3s;
@@ -806,10 +793,10 @@
         background: #08100c;
         text-align: center;
         width: min(400px, 92vw);
-        animation: popModal .35s var(--ease-bounce);
+        animation: popModal .32s var(--ease-bounce);
         border-radius: 28px;
         padding: 38px 32px;
-        box-shadow: 0 30px 80px -15px #000000e6, 0 0 40px -10px #00ff8826;
+        box-shadow: 0 24px 64px -15px #000000e6;
       }
       .exp-cat-badge {
         letter-spacing: .04em;
@@ -848,9 +835,7 @@
       .exp-card-item, .diary-card-item, .test-card-item {
         background: var(--card);
         border: 1px solid var(--line);
-        transition: all .32s var(--ease-out);
-        -webkit-backdrop-filter: blur(24px);
-        backdrop-filter: blur(24px);
+        transition: transform .28s var(--ease-out), border-color .28s var(--ease-out), background-color .28s var(--ease-out);
         border-radius: 24px;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -859,12 +844,12 @@
         margin-bottom: 12px;
         padding: 18px 22px;
         display: flex;
-        box-shadow: 0 8px 32px #00000038;
+        box-shadow: 0 6px 24px #00000038;
       }
       .exp-card-item:hover, .diary-card-item:hover, .test-card-item:hover {
         background: var(--card-hover);
         border-color: color-mix(in srgb, var(--ac) 38%, transparent);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
       }
       .exp-meta { flex-direction: column; flex: 1; gap: 4px; min-width: 200px; display: flex; }
       .exp-title { color: #fff; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; display: flex; }
@@ -918,18 +903,14 @@
       .warr-badge.soon { color: var(--amb); background: #f59e0b26; border: 1px solid #f59e0b4d; }
       .warr-badge.expired { color: var(--red); background: #f43f5e24; border: 1px solid #f43f5e4d; }
       .lg-modal {
-        -webkit-backdrop-filter: blur(36px) saturate(190%) !important;
-        backdrop-filter: blur(36px) saturate(190%) !important;
         border: 1px solid color-mix(in srgb, var(--ac) 38%, #ffffff24) !important;
-        background: linear-gradient(145deg, #0c1a12c7, #040a07e0) !important;
+        background: linear-gradient(145deg, #0c1a12f5, #040a07fa) !important;
       }
       body.light .lg-modal {
         border: 1px solid color-mix(in srgb, var(--ac) 40%, #10b98140) !important;
-        background: linear-gradient(145deg, #ffffffdb, #f0fdf4f0) !important;
+        background: linear-gradient(145deg, #fffffff8, #f0fdf4fa) !important;
       }
       .lg-tile {
-        -webkit-backdrop-filter: blur(16px);
-        backdrop-filter: blur(16px);
         transition: transform .22s var(--ease-out), border-color .22s ease;
         background: linear-gradient(160deg, #ffffff0d, #ffffff04);
         border: 1px solid #ffffff14;
@@ -950,27 +931,27 @@
       .test-res-badge.Partial { color: var(--amb); background: #f59e0b24; border: 1px solid #f59e0b4d; }
       .stat-hero-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 18px; display: grid; }
       .hero-stat-card {
-        background: linear-gradient(155deg, color-mix(in srgb, var(--ac) 13%, #08100cc7), var(--card));
+        background: linear-gradient(155deg, color-mix(in srgb, var(--ac) 13%, #08100cf0), var(--card));
         border: 1px solid color-mix(in srgb, var(--ac) 28%, var(--line));
-        box-shadow: 0 14px 38px -12px #00000073, 0 0 35px -12px color-mix(in srgb, var(--ac) 18%, transparent);
+        box-shadow: 0 12px 28px -12px #00000073;
         border-radius: 26px;
         padding: 22px 24px;
         position: relative;
         overflow: hidden;
-        transition: all .32s var(--ease-out);
+        transition: transform .28s var(--ease-out), border-color .28s var(--ease-out);
         flex-direction: column;
         justify-content: space-between;
         display: flex;
       }
       body.light .hero-stat-card { background: linear-gradient(155deg, color-mix(in srgb, var(--ac) 12%, #fff), #ffffffe6); }
-      .hero-stat-card:hover { border-color: color-mix(in srgb, var(--ac) 55%, transparent); transform: translateY(-4px); }
+      .hero-stat-card:hover { border-color: color-mix(in srgb, var(--ac) 55%, transparent); transform: translateY(-3px); }
       .hero-stat-top { justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; display: flex; }
       .hero-stat-top small { text-transform: uppercase; letter-spacing: .09em; color: var(--mu); font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 800; }
       .hero-stat-val { letter-spacing: -.03em; margin: 4px 0 10px; font-family: "JetBrains Mono", monospace; font-size: 32px; font-weight: 800; line-height: 1.15; }
       .hero-stat-foot { border-top: 1px solid var(--line); color: var(--mu); flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; padding-top: 10px; font-size: 11.5px; display: flex; }
       .mini-bar-track { background: #ffffff0f; border-radius: 99px; width: 100%; height: 6px; margin: 8px 0 4px; overflow: hidden; }
       body.light .mini-bar-track { background: #00000014; }
-      .mini-bar-fill { background: var(--grad); transform-origin: 0; height: 100%; animation: growHoriz 1s var(--ease-out) both; border-radius: 99px; }
+      .mini-bar-fill { background: var(--grad); transform-origin: 0; height: 100%; animation: growHoriz .8s var(--ease-out) both; border-radius: 99px; }
       .chart-bars-wrap { border-bottom: 1px solid var(--line); align-items: flex-end; gap: 14px; height: 220px; padding: 24px 8px 6px; display: flex; position: relative; }
       .chart-col { cursor: pointer; flex-direction: column; flex: 1; justify-content: flex-end; align-items: center; min-width: 48px; height: 100%; display: flex; position: relative; }
       .chart-col:hover .chart-tooltip { opacity: 1; pointer-events: auto; transform: translate(-50%) translateY(-6px); }
@@ -993,7 +974,7 @@
         box-shadow: 0 12px 28px #000000a6;
       }
       .chart-bars-group { justify-content: center; align-items: flex-end; gap: 4px; width: 100%; height: calc(100% - 24px); display: flex; }
-      .chart-bar { transform-origin: bottom; max-width: 18px; animation: growBar .85s var(--ease-out) both; border-radius: 6px 6px 2px 2px; flex: 1; transition: filter .2s, transform .2s; }
+      .chart-bar { transform-origin: bottom; max-width: 18px; animation: growBar .75s var(--ease-out) both; border-radius: 6px 6px 2px 2px; flex: 1; transition: filter .2s, transform .2s; }
       .chart-col:hover .chart-bar { filter: brightness(1.25); }
       .chart-bar.rev { background: var(--grad); }
       .chart-bar.prf { background: #22d3ee; animation-delay: 80ms; }
@@ -1003,7 +984,7 @@
       .rank-num { background: color-mix(in srgb, var(--ac) 15%, transparent); border-radius: 8px; width: 26px; height: 26px; color: var(--ac); flex-shrink: 0; place-items: center; font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 800; display: grid; }
       .ai-workspace { grid-template-columns: 270px 1fr; align-items: stretch; gap: 14px; display: grid; }
       .ai-workspace.history-collapsed { grid-template-columns: 1fr; }
-      .ai-history-panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); flex-direction: column; max-height: calc(58vh + 148px); display: flex; overflow: hidden; box-shadow: 0 14px 40px -12px #00000059; }
+      .ai-history-panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); flex-direction: column; max-height: calc(58vh + 148px); display: flex; overflow: hidden; box-shadow: 0 10px 28px -12px #00000059; }
       .ai-history-head { border-bottom: 1px solid var(--line); background: #ffffff05; justify-content: space-between; align-items: center; gap: 8px; padding: 14px 16px; display: flex; }
       .ai-history-list { flex-direction: column; flex: 1; gap: 6px; padding: 10px; display: flex; overflow-y: auto; }
       .ai-history-item { color: var(--tx); cursor: pointer; text-align: left; transition: all .2s var(--ease-out); background: #ffffff05; border: 1px solid #0000; border-radius: 14px; justify-content: space-between; align-items: center; gap: 8px; width: 100%; padding: 10px 12px; display: flex; }
@@ -1018,7 +999,7 @@
         .ai-history-panel { max-height: 260px; }
       }
       body.mobile-mode .ai-workspace { grid-template-columns: 1fr; }
-      .ai-shell { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); flex-direction: column; display: flex; overflow: hidden; box-shadow: 0 14px 40px -12px #0006; }
+      .ai-shell { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); flex-direction: column; display: flex; overflow: hidden; box-shadow: 0 10px 28px -12px #0006; }
       .ai-topbar { border-bottom: 1px solid var(--line); background: #ffffff05; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 20px; display: flex; }
       .ai-chat-feed { flex-direction: column; gap: 16px; min-height: 380px; max-height: 58vh; padding: 20px; display: flex; overflow-y: auto; }
       .ai-msg { flex-direction: column; gap: 6px; max-width: 88%; display: flex; }
@@ -1086,14 +1067,14 @@
         gap: 5px;
       }
       #v.in .card, #v.in .hero-stat-card, #v.in .wrap, #v.in h3, #v.in .jc, #v.in .sc, #v.in .exp-card-item, #v.in .diary-card-item, #v.in .test-card-item, #v.in .ai-shell {
-        animation: riseScale .45s var(--ease-out) both;
+        animation: riseScale .35s var(--ease-out) both;
       }
-      @keyframes riseScale { 0% { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes riseScale { 0% { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
       @keyframes fadeIn { 0% { opacity: 0; } }
-      @keyframes popModal { 0% { opacity: 0; transform: scale(.9) translateY(15px); } }
+      @keyframes popModal { 0% { opacity: 0; transform: scale(.94) translateY(10px); } }
       @keyframes growBar { 0% { transform: scaleY(0); } }
       @keyframes growHoriz { 0% { transform: scaleX(0); } }
-      @keyframes spinDonut { 0% { opacity: 0; transform: rotate(-140deg) scale(.7); } }
+      @keyframes spinDonut { 0% { opacity: 0; transform: rotate(-110deg) scale(.85); } }
       @media (width <= 960px) {
         header nav { order: 5; width: 100%; overflow-x: auto; }
       }
@@ -1250,7 +1231,7 @@
         border: 1px solid color-mix(in srgb, var(--ac) 24%, var(--line));
         border-radius: 26px;
         padding: 20px 22px;
-        box-shadow: 0 14px 40px -14px rgba(0, 0, 0, 0.65);
+        box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.65);
       }
       body.light .diag-stage-card {
         background: linear-gradient(160deg, #f8fffb, #ffffff);
@@ -1308,6 +1289,94 @@
       body.light .trig-meter {
         background: #f1f5f9;
       }
+
+
+      /* ===== Motion polish v2 (site-wide + smooth progress) ===== */
+      html { scroll-behavior: smooth; }
+      .mini-bar-fill { transition: width .8s cubic-bezier(.22, 1, .36, 1); }
+      .diag-progress { height: 10px; position: relative; }
+      .diag-progress .mini-bar-fill { transition: width .8s cubic-bezier(.22, 1, .36, 1); }
+      .live-meter .mini-bar-fill { transition: width .09s linear; }
+      .diag-pct { font-variant-numeric: tabular-nums; }
+      @keyframes fxRowIn { 0% { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+      @keyframes fxRiseIn { 0% { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes fxNumIn { 0% { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+      body.fx tbody tr { animation: fxRowIn .35s var(--ease-out) both; }
+      body.fx tbody tr { transition: background-color .22s ease, transform .22s var(--ease-out); }
+      body.fx tbody tr:hover { transform: translateX(3px); }
+      body.fx .stat b, body.fx .diag-kpi b { animation: fxNumIn .45s var(--ease-out) both; }
+      body.fx .stat, body.fx .diag-kpi { transition: transform .25s var(--ease-out), border-color .25s; }
+      body.fx .stat:hover, body.fx .diag-kpi:hover { transform: translateY(-2px); }
+      body.fx .diag-tabs ~ .card { animation: fxRiseIn .3s var(--ease-out) both; }
+      body.fx .chip { transition: transform .2s var(--ease-bounce); }
+      body.fx .chip:hover { transform: scale(1.03); }
+      body.fx dialog[open]::backdrop { animation: fadeIn .2s ease both; }
+      body.fx .diag-qa-bar { animation: fxRiseIn .4s var(--ease-out) both; }
+      body.fx .diag-tabs button { transition: background .25s, color .25s, transform .15s; }
+      body.fx .diag-tabs button:active { transform: scale(.95); }
+
+      /* Diagnostics UI overhaul */
+      .diag-toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+      .diag-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+      .diag-kpi { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 18px; border: 1px solid var(--line); background: var(--card); position: relative; overflow: hidden; }
+      .diag-kpi small { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--mu); font-weight: 700; }
+      .diag-kpi b { font: 800 22px "JetBrains Mono", monospace; letter-spacing: -.02em; }
+      .diag-kpi::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--mu); opacity: .5; }
+      .diag-kpi.ok::before { background: #00ff88; opacity: 1; }
+      .diag-kpi.warn::before { background: #f5a623; opacity: 1; }
+      .diag-kpi.verdict { border-color: color-mix(in srgb, var(--ac) 35%, var(--line)); }
+      .diag-tabs { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 9999px; background: #020604; }
+      body.light .diag-tabs { background: #e2e8f0; }
+      .diag-tabs button { flex: 1; border: 0; background: transparent; color: var(--mu); font: 700 12.5px var(--font-main); padding: 9px 10px; border-radius: 9999px; cursor: pointer; transition: all .2s; }
+      .diag-tabs button.on { background: var(--grad); color: #030705; box-shadow: 0 0 12px color-mix(in srgb, var(--ac) 35%, transparent); }
+      .diag-stage-card { position: sticky; top: 12px; }
+      @media (width <= 980px) { .diag-stage-card { position: static; } }
+      .diag-qa-bar { position: sticky; bottom: 10px; z-index: 6; display: grid; grid-template-columns: auto minmax(180px, 1.2fr) minmax(180px, 1.5fr) auto; gap: 10px; align-items: center; padding: 10px 14px; border-radius: 9999px; background: var(--sol); border: 1px solid color-mix(in srgb, var(--ac) 30%, var(--line)); box-shadow: 0 8px 24px -10px rgba(0,0,0,.6); }
+      .diag-qa-bar select, .diag-qa-bar input { margin: 0; }
+      .diag-qa-title { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13px; color: var(--ac); white-space: nowrap; }
+      @media (width <= 900px) { .diag-qa-bar { grid-template-columns: 1fr; border-radius: 22px; } }
+
+      /* =====================================================================
+         MOTION LAYER  (Settings → Appearance → Animations)
+         body.fx    = extra animations on
+         body.no-fx = every animation / transition switched off
+         ===================================================================== */
+      body.no-fx *, body.no-fx *::before, body.no-fx *::after {
+        animation: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+      }
+      body.no-fx #aurora-canvas { display: none; }
+
+      @keyframes fxRipple { 0% { transform: scale(0); opacity: .45; } to { transform: scale(1); opacity: 0; } }
+      @keyframes fxPopIn { 0% { opacity: 0; transform: scale(.85); } 65% { transform: scale(1.04); } to { opacity: 1; transform: scale(1); } }
+
+      /* buttons: ripple + springy press */
+      body.fx .b:active, body.fx .ib:active { transform: translateY(0) scale(.94); transition-duration: .08s; }
+      body.fx .ib, body.fx .seg button, body.fx nav .b { position: relative; overflow: hidden; }
+      .fx-ripple {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, color-mix(in srgb, var(--ac) 65%, #fff) 0%, transparent 70%);
+        animation: fxRipple .55s var(--ease-out) forwards;
+        z-index: 3;
+      }
+
+      body.fx .seg button.on { animation: fxPopIn .25s var(--ease-bounce); }
+
+      /* microphone test card */
+      .mic-card.live { border-color: var(--ac); }
+      .mic-canvas { width: 100%; height: 96px; border-radius: 14px; display: block; background: rgba(0, 0, 0, .35); border: 1px solid var(--line); }
+      body.light .mic-canvas { background: #0b1a12; }
+      .mic-dot { width: 9px; height: 9px; border-radius: 50%; background: #64748b; display: inline-block; margin-right: 6px; }
+      .mic-card.live .mic-dot { background: #00ff88; }
+      .haptic-btn.rec { background: #f43f5e; color: #fff; border-color: transparent; }
+
+      @media (prefers-reduced-motion: reduce) {
+        body.fx *, body.fx *::before, body.fx *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; }
+      }
     </style>
   </head>
   <body>
@@ -1325,6 +1394,7 @@
           font: "jakarta",
           sortOrder: "date-desc",
           hideSold: false,
+          animations: true,
           aiEnabled: true,
           aiThinkingDepth: "fast",
           aiAutoApply: true,
@@ -1598,7 +1668,7 @@
         }
       }
 
-      // Aurora Background Canvas
+      // Lightweight GPU-friendly Aurora Background Canvas (capped DPR & throttled ~30fps)
       const AuroraCanvas = ({ accent }) => {
         const canvasRef = useRef(null);
         const accentRef = useRef(accent);
@@ -1607,7 +1677,7 @@
         useEffect(() => {
           const canvas = canvasRef.current;
           if (!canvas) return;
-          const ctx = canvas.getContext("2d");
+          const ctx = canvas.getContext("2d", { alpha: true });
           if (!ctx) return;
 
           let w = (canvas.width = window.innerWidth);
@@ -1645,6 +1715,7 @@
           const rgba = (rgb, a) => `rgba(${Math.round(rgb[0])}, ${Math.round(rgb[1])}, ${Math.round(rgb[2])}, ${a})`;
 
           const render = () => {
+            if (document.body.classList.contains("no-fx")) { raf = requestAnimationFrame(render); return; }
             const palette = ACCENT_THEMES[accentRef.current in ACCENT_THEMES ? accentRef.current : "neon"].aurora;
             lerp(colors, palette, .05);
             ctx.clearRect(0, 0, w, h);
@@ -3155,10 +3226,41 @@
       // =========================================================================
       // LIVE DEVICE DIAGNOSTICS & CONTROLLER BENCH TESTER (GAMEPAD / WEB-BENCH)
       // =========================================================================
+      // Smoothly eases a displayed number toward its target (used for progress %)
+      const useTweenedNumber = (target, ms = 650) => {
+        const [val, setVal] = useState(target);
+        const fromRef = useRef(target);
+        useEffect(() => {
+          const from = fromRef.current;
+          if (Math.abs(target - from) < 0.01) {
+            fromRef.current = target;
+            setVal(target);
+            return;
+          }
+          const start = performance.now();
+          let raf;
+          const tick = now => {
+            const t = Math.min(1, (now - start) / ms);
+            const v = from + (target - from) * (1 - Math.pow(1 - t, 3));
+            fromRef.current = v;
+            setVal(v);
+            if (t < 1) raf = requestAnimationFrame(tick);
+          };
+          raf = requestAnimationFrame(tick);
+          return () => cancelAnimationFrame(raf);
+        }, [target, ms]);
+        return val;
+      };
+
       const DeviceDiagnosticsView = ({ state, onSaveTestResult }) => {
         const [padInfo, setPadInfo] = useState(null);
         const [layoutOverride, setLayoutOverride] = useState("auto"); // "auto" | "dualsense" | "xbox"
-        const [selectedJobId, setSelectedJobId] = useState(() => String(state.jobs.find(j => j.status !== "Completed")?.id || state.jobs.at(-1)?.id || 0));
+        const [rightTab, setRightTab] = useState("sticks");
+        // Auto-select the newest job in the ledger (highest ticket id) until the user picks one manually.
+        const newestJobId = useMemo(() => String(state.jobs.reduce((m, j) => (+j.id > m ? +j.id : m), 0) || 0), [state.jobs]);
+        const [selectedJobId, setSelectedJobId] = useState(newestJobId);
+        const jobPickedRef = useRef(false);
+        useEffect(() => { if (!jobPickedRef.current) setSelectedJobId(newestJobId); }, [newestJobId]);
         const [testNotes, setTestNotes] = useState("");
         const [savedBanner, setSavedBanner] = useState(false);
 
@@ -3173,6 +3275,10 @@
         const [calHasUnsaved, setCalHasUnsaved] = useState(false);
         const activeGamepadIdxRef = useRef(null);
         const hidDeviceRef = useRef(null);
+        const hapticCleanupTimerRef = useRef(null);
+        const hapticIntensityRef = useRef(0.8);
+        useEffect(() => { hapticIntensityRef.current = hapticIntensity; }, [hapticIntensity]);
+
         // WebHID is blocked inside cross-origin iframes (e.g. Google Sites "Embed code") unless the iframe has allow="hid",
         // which Google Sites does not let you set. Detect that so we can offer a full-tab fallback instead of a dead button.
         const HOSTED_URL = ""; // <- optional: paste the public https:// URL where this tracker is hosted (GitHub Pages / Firebase Hosting)
@@ -3197,8 +3303,247 @@
         const hidMutePressedRef = useRef(false);
         const hidTouchRef = useRef({ click: false, touches: [] });
 
+        // ---------------- DualSense microphone test (getUserMedia + Web Audio) ----------------
+        const [micDevices, setMicDevices] = useState([]);
+        const [micDeviceId, setMicDeviceId] = useState("");
+        const [micState, setMicState] = useState("idle"); // idle | starting | live | error
+        const [micMsg, setMicMsg] = useState("Plug the DualSense in via USB, then press Start Mic Test and speak or tap the mic grille.");
+        const [micDb, setMicDb] = useState(-90);
+        const [micPeakDb, setMicPeakDb] = useState(-90);
+        const [micVerified, setMicVerified] = useState(false);
+        const [micMonitor, setMicMonitor] = useState(false);
+        const [micRecState, setMicRecState] = useState("idle"); // idle | recording | ready
+        const [micClipUrl, setMicClipUrl] = useState("");
+        const micCanvasRef = useRef(null);
+        const micRef = useRef({ stream: null, ctx: null, analyser: null, gain: null, raf: 0, hot: 0, peak: 0, lastUi: 0, recorder: null });
+
+        const isDualSenseMic = d => /dualsense|wireless controller|054c|ps5/i.test(d?.label || "");
+
+        const refreshMicDevices = useCallback(async () => {
+          try {
+            const all = await navigator.mediaDevices.enumerateDevices();
+            const inputs = all.filter(d => d.kind === "audioinput");
+            setMicDevices(inputs);
+            return inputs;
+          } catch {
+            return [];
+          }
+        }, []);
+
+        // Browsers hide microphone names until permission is granted, so a scan briefly opens the mic, then lists everything.
+        const scanMics = async () => {
+          if (!navigator.mediaDevices?.getUserMedia) {
+            setMicMsg("This browser can't list microphones here — it needs a secure (https / localhost) page.");
+            return;
+          }
+          setMicMsg("Scanning for microphones…");
+          try {
+            const tmp = await navigator.mediaDevices.getUserMedia({ audio: true });
+            tmp.getTracks().forEach(t => t.stop());
+          } catch (err) {
+            setMicMsg(err?.name === "NotAllowedError" ? "Microphone permission was denied — allow it in the address bar, then scan again." : `Scan problem: ${err?.message || err?.name || "unknown"}`);
+          }
+          const list = await refreshMicDevices();
+          const ds = list.find(isDualSenseMic);
+          if (ds) setMicDeviceId(ds.deviceId);
+          setMicMsg(`Found ${list.length} microphone${list.length === 1 ? "" : "s"}${ds ? " — DualSense detected and selected." : ". No DualSense mic yet — connect it by USB and scan again."}`);
+        };
+
+        const stopMicTest = useCallback(() => {
+          const m = micRef.current;
+          if (m.raf) cancelAnimationFrame(m.raf);
+          m.raf = 0;
+          try { if (m.recorder && m.recorder.state !== "inactive") m.recorder.stop(); } catch {}
+          m.recorder = null;
+          try { m.stream?.getTracks().forEach(t => t.stop()); } catch {}
+          try { m.ctx?.close(); } catch {}
+          m.stream = null; m.ctx = null; m.analyser = null; m.gain = null; m.hot = 0; m.peak = 0;
+          setMicState(st => (st === "error" ? st : "idle"));
+          setMicMonitor(false);
+          setMicRecState(st => (st === "recording" ? "idle" : st));
+          setMicDb(-90);
+          const c = micCanvasRef.current;
+          if (c) c.getContext("2d")?.clearRect(0, 0, c.width, c.height);
+        }, []);
+        const stopMicRef = useRef(stopMicTest);
+        stopMicRef.current = stopMicTest;
+
+        const startMicTest = async requestedId => {
+          if (!navigator.mediaDevices?.getUserMedia) {
+            setMicState("error");
+            setMicMsg("This browser can't open the microphone here — it needs a secure (https / localhost) page.");
+            return;
+          }
+          stopMicTest();
+          setMicState("starting");
+          setMicMsg("Requesting microphone access…");
+          const open = id => navigator.mediaDevices.getUserMedia({
+            audio: {
+              deviceId: id ? { exact: id } : undefined,
+              echoCancellation: false,   // raw signal so the controller's own mic is what gets measured
+              noiseSuppression: false,
+              autoGainControl: false
+            }
+          });
+          try {
+            let stream = await open(requestedId);
+            let inputs = await refreshMicDevices();
+            let chosen = stream.getAudioTracks()[0]?.getSettings?.().deviceId || requestedId || "";
+
+            // Auto-switch to the DualSense's own mic (labels only appear after permission is granted)
+            if (!requestedId) {
+              const ds = inputs.find(isDualSenseMic);
+              if (ds && ds.deviceId !== chosen) {
+                stream.getTracks().forEach(t => t.stop());
+                stream = await open(ds.deviceId);
+                chosen = ds.deviceId;
+              }
+            }
+            setMicDeviceId(chosen);
+
+            const AC = window.AudioContext || window.webkitAudioContext;
+            const ctx = new AC();
+            if (ctx.state === "suspended") await ctx.resume();
+            const src = ctx.createMediaStreamSource(stream);
+            const analyser = ctx.createAnalyser();
+            analyser.fftSize = 1024;
+            analyser.smoothingTimeConstant = 0.55;
+            const gain = ctx.createGain();
+            gain.gain.value = 0; // loopback is off until the user enables it
+            src.connect(analyser);
+            src.connect(gain);
+            gain.connect(ctx.destination);
+
+            const m = micRef.current;
+            m.stream = stream; m.ctx = ctx; m.analyser = analyser; m.gain = gain; m.hot = 0; m.peak = 0;
+
+            const label = stream.getAudioTracks()[0]?.label || "microphone";
+            setMicState("live");
+            setMicMonitor(false);
+            setMicMsg(isDualSenseMic({ label })
+              ? `Listening on “${label}” — speak, clap or tap the controller's mic grille.`
+              : `Listening on “${label}”. That doesn't look like the DualSense — pick it from the list (USB connection required).`);
+
+            const buf = new Float32Array(analyser.fftSize);
+            const accent = (getComputedStyle(document.documentElement).getPropertyValue("--ac") || "#00ff88").trim() || "#00ff88";
+            const draw = () => {
+              const mm = micRef.current;
+              if (!mm.analyser) return;
+              mm.analyser.getFloatTimeDomainData(buf);
+              let sum = 0, pk = 0;
+              for (let i = 0; i < buf.length; i++) { const v = buf[i]; sum += v * v; if (Math.abs(v) > pk) pk = Math.abs(v); }
+              const rms = Math.sqrt(sum / buf.length);
+              const db = rms > 0 ? Math.max(-90, 20 * Math.log10(rms)) : -90;
+              mm.peak = Math.max(db, mm.peak - 0.35);
+
+              if (rms > 0.012) mm.hot++; else mm.hot = Math.max(0, mm.hot - 1);
+              if (mm.hot === 8) setMicVerified(true);
+
+              const c = micCanvasRef.current;
+              if (c) {
+                const g = c.getContext("2d");
+                const W = c.width, H = c.height;
+                g.clearRect(0, 0, W, H);
+                // centre line
+                g.strokeStyle = "rgba(255,255,255,0.08)";
+                g.lineWidth = 1;
+                g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.stroke();
+                // waveform
+                g.strokeStyle = accent;
+                g.lineWidth = 2.2;
+                g.beginPath();
+                const step = buf.length / W;
+                for (let x = 0; x < W; x++) {
+                  const v = buf[Math.floor(x * step)] || 0;
+                  const y = H / 2 + Math.max(-1, Math.min(1, v * 3.2)) * (H / 2 - 4);
+                  if (x === 0) g.moveTo(x, y); else g.lineTo(x, y);
+                }
+                g.stroke();
+                // level bar + peak hold along the bottom
+                const lvl = Math.max(0, Math.min(1, (db + 60) / 60));
+                const grad = g.createLinearGradient(0, 0, W, 0);
+                grad.addColorStop(0, accent); grad.addColorStop(0.75, "#facc15"); grad.addColorStop(1, "#f43f5e");
+                g.fillStyle = grad;
+                g.fillRect(0, H - 6, W * lvl, 6);
+                const pkX = W * Math.max(0, Math.min(1, (mm.peak + 60) / 60));
+                g.fillStyle = "#ffffff";
+                g.fillRect(Math.max(0, pkX - 2), H - 9, 3, 9);
+              }
+
+              const now = performance.now();
+              if (now - mm.lastUi > 90) {
+                mm.lastUi = now;
+                setMicDb(Math.round(db));
+                setMicPeakDb(Math.round(mm.peak));
+              }
+              mm.raf = requestAnimationFrame(draw);
+            };
+            m.raf = requestAnimationFrame(draw);
+          } catch (err) {
+            stopMicTest();
+            setMicState("error");
+            const name = err?.name || "";
+            setMicMsg(
+              name === "NotAllowedError" || name === "SecurityError"
+                ? "Microphone access was blocked. Allow it in the address bar — inside an embed the page also needs microphone permission (allow=\"microphone\")."
+                : name === "NotFoundError" || name === "OverconstrainedError"
+                  ? "No matching microphone found. Connect the DualSense by USB (Bluetooth doesn't expose its mic to PCs) and try again."
+                  : `Couldn't start the mic: ${err?.message || name || "unknown error"}`
+            );
+          }
+        };
+
+        const toggleMicMonitor = () => {
+          const m = micRef.current;
+          if (!m.gain || !m.ctx) return;
+          const next = !micMonitor;
+          m.gain.gain.setTargetAtTime(next ? 1 : 0, m.ctx.currentTime, 0.02);
+          setMicMonitor(next);
+          setMicMsg(next ? "Loopback ON — you'll hear the controller's mic through your speakers. Use headphones to avoid feedback." : "Loopback off.");
+        };
+
+        const recordMicClip = () => {
+          const m = micRef.current;
+          if (!m.stream || typeof MediaRecorder === "undefined") {
+            setMicMsg("Recording isn't available in this browser.");
+            return;
+          }
+          try {
+            const chunks = [];
+            const rec = new MediaRecorder(m.stream);
+            m.recorder = rec;
+            rec.ondataavailable = e => { if (e.data?.size) chunks.push(e.data); };
+            rec.onstop = () => {
+              const blob = new Blob(chunks, { type: rec.mimeType || "audio/webm" });
+              setMicClipUrl(prev => { if (prev) URL.revokeObjectURL(prev); return URL.createObjectURL(blob); });
+              setMicRecState("ready");
+              setMicMsg("Clip recorded — press play to hear what the DualSense mic captured.");
+            };
+            rec.start();
+            setMicRecState("recording");
+            setMicMsg("Recording 4 seconds… talk now.");
+            setTimeout(() => { try { if (rec.state !== "inactive") rec.stop(); } catch {} }, 4000);
+          } catch (err) {
+            setMicRecState("idle");
+            setMicMsg(`Couldn't record: ${err?.message || "unknown error"}`);
+          }
+        };
+
+        useEffect(() => { if (navigator.mediaDevices?.enumerateDevices) refreshMicDevices(); }, [refreshMicDevices]);
+        useEffect(() => {
+          const onChange = () => { if (navigator.mediaDevices?.enumerateDevices) refreshMicDevices(); };
+          navigator.mediaDevices?.addEventListener?.("devicechange", onChange);
+          return () => {
+            navigator.mediaDevices?.removeEventListener?.("devicechange", onChange);
+            stopMicRef.current?.();
+          };
+        }, [refreshMicDevices]);
+        useEffect(() => () => { if (micClipUrl) URL.revokeObjectURL(micClipUrl); }, [micClipUrl]);
+
         const leftCanvasRef = useRef(null);
         const rightCanvasRef = useRef(null);
+        // Visual-only stick state: smoothed position + short-lived, time-faded trail (separate from test metrics)
+        const vizRef = useRef({ L: { sx: 0, sy: 0, trail: [] }, R: { sx: 0, sy: 0, trail: [] } });
         const telemetryRef = useRef({
           leftSamples: [],
           rightSamples: [],
@@ -3228,6 +3573,9 @@
         }, [padInfo?.id, hidDeviceInfo?.name]);
 
         const activeLayout = layoutOverride === "auto" ? detectedType : layoutOverride;
+
+        // leaving the DualSense layout shuts the mic
+        useEffect(() => { if (activeLayout !== "dualsense") stopMicRef.current?.(); }, [activeLayout]);
 
         // IEEE 802.3 CRC32 for DualSense Bluetooth HID Output Reports (0x31)
         const computeCrc32 = bytes => {
@@ -3397,7 +3745,7 @@
             if (!pendingGestureRef.current) return;
             const pad = findDualSensePad();
             if (pad && Array.from(pad.buttons).some(b => b.pressed)) tryAutoConnect();
-          }, 100);
+          }, 120);
           window.addEventListener("pointerdown", retry, true);
           window.addEventListener("keydown", retry, true);
 
@@ -3631,6 +3979,8 @@
         useEffect(() => {
           const fullReset = () => {
             resetBenchRef.current?.();
+            stopMicRef.current?.();
+            setMicVerified(false);
             hidMutePressedRef.current = false;
             hidTouchRef.current = { click: false, touches: [] };
             setMetrics(m => ({ ...m, lx: 0, ly: 0, rx: 0, ry: 0, l2: 0, r2: 0 }));
@@ -3661,9 +4011,61 @@
           };
         }, []);
 
+        // Helper to run an effect on a GamepadVibrationActuator using playEffect with dual-rumble fallback
+        const runGamePadActuatorEffect = async (act, { duration, strongMagnitude = 0, weakMagnitude = 0, leftTrigger = 0, rightTrigger = 0 }) => {
+          if (!act) return false;
+          // At ~0.8 magnitude some controllers/drivers stall or drop below threshold unless briefly primed or driven cleanly
+          const normMag = v => {
+            const n = Math.max(0, Math.min(1, Number(v) || 0));
+            return n === 0 ? 0 : Math.min(1, Number(n.toFixed(4)));
+          };
+          const strong = normMag(strongMagnitude);
+          const weak = normMag(weakMagnitude);
+          const lt = normMag(leftTrigger);
+          const rt = normMag(rightTrigger);
+
+          if (typeof act.playEffect === "function") {
+            if (lt > 0 || rt > 0) {
+              try {
+                await act.playEffect("trigger-rumble", {
+                  startDelay: 0,
+                  duration,
+                  leftTrigger: lt,
+                  rightTrigger: rt,
+                  strongMagnitude: 0,
+                  weakMagnitude: 0
+                });
+                return true;
+              } catch {
+                // Fallback to dual-rumble when trigger-rumble isn't exposed at this intensity
+                await act.playEffect("dual-rumble", {
+                  startDelay: 0,
+                  duration,
+                  strongMagnitude: Math.max(strong, lt * 0.75),
+                  weakMagnitude: Math.max(weak, rt * 0.75)
+                });
+                return true;
+              }
+            }
+            await act.playEffect("dual-rumble", {
+              startDelay: 0,
+              duration,
+              strongMagnitude: strong,
+              weakMagnitude: weak
+            });
+            return true;
+          }
+          return false;
+        };
+
         const fireVibration = async mode => {
-          const strength = Math.max(0.1, Math.min(1, Number(hapticIntensity) || 0.8));
+          const strength = Math.max(0.1, Math.min(1, Number(hapticIntensityRef.current) || 0.8));
           const duration = 1100;
+
+          if (hapticCleanupTimerRef.current) {
+            clearTimeout(hapticCleanupTimerRef.current);
+            hapticCleanupTimerRef.current = null;
+          }
 
           // DUALSENSE PATH: Use WebHID directly for true rumble motors + stiff resistance triggers
           if (activeLayout === "dualsense") {
@@ -3681,7 +4083,8 @@
             }
 
             setActiveHaptic(mode);
-            const bytePower = Math.round(strength * 255);
+            // Scale smoothly across 0..255 so 80% maps to ~204 without rounding dead-zones
+            const bytePower = Math.max(1, Math.min(255, Math.round(strength * 255)));
             try {
               let ok = false;
               if (mode === "left") {
@@ -3694,18 +4097,18 @@
                 ok = await sendDualSenseHidOutput({ leftMotor: bytePower, rightMotor: bytePower });
                 if (ok) setHapticMsg(`DualSense Both Motors firing at ${Math.round(strength * 100)}%`);
               } else if (mode === "lt") {
-                // Mode 0x01 = Continuous Stiff Resistance across full L2 travel
+                // Mode 0x01 = Continuous Resistance: param0 = start position (0), param1 = force/strength (1..255)
                 ok = await sendDualSenseHidOutput({ l2Mode: 0x01, l2Params: [0x00, bytePower, 0x00] });
                 if (ok) setHapticMsg(`DualSense L2 Stiff Resistance active (${Math.round(strength * 100)}%) — squeeze L2 to test!`);
               } else if (mode === "rt") {
-                // Mode 0x01 = Continuous Stiff Resistance across full R2 travel
+                // Mode 0x01 = Continuous Resistance: param0 = start position (0), param1 = force/strength (1..255)
                 ok = await sendDualSenseHidOutput({ r2Mode: 0x01, r2Params: [0x00, bytePower, 0x00] });
                 if (ok) setHapticMsg(`DualSense R2 Stiff Resistance active (${Math.round(strength * 100)}%) — squeeze R2 to test!`);
               }
 
               if (ok) {
                 const holdTime = mode === "lt" || mode === "rt" ? 3200 : duration;
-                setTimeout(async () => {
+                hapticCleanupTimerRef.current = setTimeout(async () => {
                   try {
                     if (hidDeviceRef.current?.opened) {
                       await sendDualSenseHidOutput({ leftMotor: 0, rightMotor: 0, l2Mode: 0, r2Mode: 0 });
@@ -3756,99 +4159,171 @@
           setActiveHaptic(mode);
           try {
             if (mode === "left" || mode === "right" || mode === "both") {
-              await act.playEffect("dual-rumble", {
-                startDelay: 0,
+              const ok = await runGamePadActuatorEffect(act, {
                 duration,
                 strongMagnitude: mode === "left" || mode === "both" ? strength : 0,
                 weakMagnitude: mode === "right" || mode === "both" ? strength : 0
               });
-              const label = mode === "left" ? "Left Strong Motor" : mode === "right" ? "Right Weak Motor" : "Dual Motors";
-              setHapticMsg(`Tested ${label} at ${Math.round(strength * 100)}%`);
-            } else if (mode === "lt" || mode === "rt") {
-              try {
-                await act.playEffect("trigger-rumble", {
-                  startDelay: 0,
-                  duration,
-                  leftTrigger: mode === "lt" ? strength : 0,
-                  rightTrigger: mode === "rt" ? strength : 0,
-                  strongMagnitude: 0,
-                  weakMagnitude: 0
-                });
-                setHapticMsg(`Tested ${mode === "lt" ? "Left Trigger (LT)" : "Right Trigger (RT)"} rumble at ${Math.round(strength * 100)}%`);
-              } catch {
-                await act.playEffect("dual-rumble", {
-                  startDelay: 0,
-                  duration: 500,
-                  strongMagnitude: mode === "lt" ? strength * 0.65 : 0,
-                  weakMagnitude: mode === "rt" ? strength * 0.65 : 0
-                });
-                setHapticMsg(`Trigger-rumble fallback pulsed ${mode === "lt" ? "Left" : "Right"} motor.`);
+              if (!ok) {
+                setHapticMsg("Haptic effect not supported on this browser/controller.");
+              } else {
+                const label = mode === "left" ? "Left Strong Motor" : mode === "right" ? "Right Weak Motor" : "Dual Motors";
+                setHapticMsg(`Tested ${label} at ${Math.round(strength * 100)}%`);
               }
+            } else if (mode === "lt" || mode === "rt") {
+              await runGamePadActuatorEffect(act, {
+                duration,
+                leftTrigger: mode === "lt" ? strength : 0,
+                rightTrigger: mode === "rt" ? strength : 0
+              });
+              setHapticMsg(`Tested ${mode === "lt" ? "Left Trigger (LT)" : "Right Trigger (RT)"} haptics at ${Math.round(strength * 100)}%`);
             }
           } catch (err) {
             setHapticMsg(err?.message || "Haptic effect not supported on this browser/controller.");
           } finally {
-            setTimeout(() => setActiveHaptic(cur => (cur === mode ? "" : cur)), duration);
+            hapticCleanupTimerRef.current = setTimeout(() => setActiveHaptic(cur => (cur === mode ? "" : cur)), duration);
           }
         };
 
         useEffect(() => {
           let rafId = 0;
+          let paused = document.hidden;
+          const onVis = () => { paused = document.hidden; };
+          document.addEventListener("visibilitychange", onVis);
 
-          const drawStickCanvas = (canvas, x, y, samples, circErr) => {
+          const TRAIL_LIFE = 550; // ms a trail point stays visible
+          const stepViz = (v, x, y, now) => {
+            const k = 0.45;
+            v.sx += (x - v.sx) * k;
+            v.sy += (y - v.sy) * k;
+            if (Math.hypot(v.sx, v.sy) > 0.08) {
+              const last = v.trail[v.trail.length - 1];
+              if (!last || Math.hypot(v.sx - last.x, v.sy - last.y) > 0.035) {
+                v.trail.push({ x: v.sx, y: v.sy, t: now, err: Math.abs(Math.hypot(v.sx, v.sy) - 1) * 100 });
+                if (v.trail.length > 60) v.trail.shift();
+              }
+            }
+            while (v.trail.length && now - v.trail[0].t > TRAIL_LIFE) v.trail.shift();
+          };
+
+          const drawStickCanvas = (canvas, viz, samples, circErr, now) => {
             if (!canvas) return;
+            const x = viz.sx;
+            const y = viz.sy;
+            const S = 164;
+            // Cap DPR to 1.5 for crisp rendering without high-DPI GPU bloat
+            const dpr = Math.min(1.5, window.devicePixelRatio || 1);
+            if (canvas.width !== Math.round(S * dpr)) {
+              canvas.width = Math.round(S * dpr);
+              canvas.height = Math.round(S * dpr);
+              canvas.style.width = `${S}px`;
+              canvas.style.height = `${S}px`;
+            }
             const ctx = canvas.getContext("2d");
-            const size = canvas.width;
-            const cx = size / 2;
-            const cy = size / 2;
-            const rad = size * 0.4;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const cx = S / 2;
+            const cy = S / 2;
+            const rad = S * 0.4;
+            const TAU = Math.PI * 2;
+            ctx.clearRect(0, 0, S, S);
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
 
-            ctx.clearRect(0, 0, size, size);
-
-            ctx.strokeStyle = "rgba(0, 255, 136, 0.35)";
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.arc(cx, cy, rad, 0, Math.PI * 2);
-            ctx.stroke();
-
-            ctx.strokeStyle = "rgba(148, 163, 184, 0.18)";
+            // inner guide rings + crosshair + diagonals
+            ctx.strokeStyle = "rgba(148, 163, 184, 0.2)";
             ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.arc(cx, cy, rad * 0.5, 0, Math.PI * 2);
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.moveTo(cx - rad - 8, cy);
-            ctx.lineTo(cx + rad + 8, cy);
-            ctx.moveTo(cx, cy - rad - 8);
-            ctx.lineTo(cx, cy + rad + 8);
-            ctx.stroke();
-
-            if (samples.length > 1) {
-              ctx.strokeStyle = circErr <= 7.5 ? "rgba(0, 255, 136, 0.78)" : "rgba(245, 158, 11, 0.85)";
-              ctx.lineWidth = 2.4;
+            [0.25, 0.5, 0.75].forEach(f => {
               ctx.beginPath();
-              samples.forEach((pt, idx) => {
-                const px = cx + pt.x * rad;
-                const py = cy + pt.y * rad;
-                if (idx === 0) ctx.moveTo(px, py);
-                else ctx.lineTo(px, py);
-              });
+              ctx.arc(cx, cy, rad * f, 0, TAU);
+              ctx.stroke();
+            });
+            ctx.beginPath();
+            ctx.moveTo(cx - rad, cy); ctx.lineTo(cx + rad, cy);
+            ctx.moveTo(cx, cy - rad); ctx.lineTo(cx, cy + rad);
+            ctx.stroke();
+
+            // rim coverage ring: 36 sectors light up as the stick sweeps the edge
+            const SECT = 36;
+            const covered = new Array(SECT).fill(false);
+            for (let i = 0; i < samples.length; i++) {
+              const pt = samples[i];
+              const ang = Math.atan2(pt.y, pt.x) + Math.PI;
+              covered[Math.min(SECT - 1, Math.floor((ang / TAU) * SECT))] = true;
+            }
+            const covCount = covered.filter(Boolean).length;
+            const ringR = rad + 10;
+            ctx.lineWidth = 3.5;
+            for (let i = 0; i < SECT; i++) {
+              const a0 = (i / SECT) * TAU - Math.PI + 0.025;
+              const a1 = ((i + 1) / SECT) * TAU - Math.PI - 0.025;
+              ctx.strokeStyle = covered[i] ? "rgba(0, 255, 136, 0.9)" : "rgba(148, 163, 184, 0.16)";
+              ctx.beginPath();
+              ctx.arc(cx, cy, ringR, a0, a1);
               ctx.stroke();
             }
 
+            // ideal rim (target circle)
+            ctx.strokeStyle = "rgba(0, 255, 136, 0.55)";
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.arc(cx, cy, rad, 0, TAU);
+            ctx.stroke();
+
+            // trail: time-faded, error-coloured (no per-segment shadowBlur to keep frame cost low)
+            const tr = viz.trail;
+            if (tr.length > 1) {
+              const errColor = (err, a) =>
+                err <= 5 ? `rgba(0, 255, 136, ${a})` : err <= 10 ? `rgba(250, 204, 21, ${a})` : `rgba(244, 63, 94, ${a})`;
+              for (let i = 1; i < tr.length; i++) {
+                const life = 1 - (now - tr[i].t) / TRAIL_LIFE;
+                if (life <= 0) continue;
+                const a = Math.pow(life, 1.3);
+                const x0 = cx + tr[i - 1].x * rad;
+                const y0 = cy + tr[i - 1].y * rad;
+                const x1 = cx + tr[i].x * rad;
+                const y1 = cy + tr[i].y * rad;
+                ctx.strokeStyle = errColor(tr[i].err, 0.85 * a);
+                ctx.lineWidth = 1.2 + a * 2.2;
+                ctx.beginPath();
+                ctx.moveTo(x0, y0);
+                ctx.lineTo(x1, y1);
+                ctx.stroke();
+              }
+            }
+
+            // live vector line from centre to thumb position
             const dotX = cx + x * rad;
             const dotY = cy + y * rad;
+            const mag = Math.hypot(x, y);
+            if (mag > 0.03) {
+              ctx.strokeStyle = "rgba(0, 255, 136, 0.85)";
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.moveTo(cx, cy);
+              ctx.lineTo(dotX, dotY);
+              ctx.stroke();
+            }
+
+            // live dot
             ctx.fillStyle = "#00ff88";
             ctx.beginPath();
-            ctx.arc(dotX, dotY, 5.5, 0, Math.PI * 2);
+            ctx.arc(dotX, dotY, 5.5, 0, TAU);
             ctx.fill();
-            ctx.strokeStyle = "#030705";
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#ffffff";
+            ctx.lineWidth = 1.6;
             ctx.stroke();
+
+            // coverage readout
+            ctx.fillStyle = "rgba(148, 163, 184, 0.85)";
+            ctx.font = "600 9px 'JetBrains Mono', monospace";
+            ctx.textAlign = "left";
+            ctx.fillText(`${Math.round((covCount / SECT) * 100)}% rim`, 4, S - 4);
           };
 
           const pollGamepad = () => {
+            rafId = requestAnimationFrame(pollGamepad);
+            if (paused) return;
+
             const gps = navigator.getGamepads ? navigator.getGamepads() : [];
             const active = Array.from(gps || []).find(g => g && g.connected);
 
@@ -3866,11 +4341,11 @@
 
               if (lMag > 0.75) {
                 store.leftSamples.push({ x: lx, y: ly, err: Math.abs(lMag - 1) * 100 });
-                if (store.leftSamples.length > 260) store.leftSamples.shift();
+                if (store.leftSamples.length > 220) store.leftSamples.shift();
               }
               if (rMag > 0.75) {
                 store.rightSamples.push({ x: rx, y: ry, err: Math.abs(rMag - 1) * 100 });
-                if (store.rightSamples.length > 260) store.rightSamples.shift();
+                if (store.rightSamples.length > 220) store.rightSamples.shift();
               }
 
               const leftCircErr = store.leftSamples.length
@@ -3920,8 +4395,11 @@
                 pressedNow.push(hidTouchRef.current.click ? "Touchpad Click" : `Touchpad (${currentTouches.length}F)`);
               }
 
-              drawStickCanvas(leftCanvasRef.current, lx, ly, store.leftSamples, leftCircErr);
-              drawStickCanvas(rightCanvasRef.current, rx, ry, store.rightSamples, rightCircErr);
+              const nowTs = performance.now();
+              stepViz(vizRef.current.L, lx, ly, nowTs);
+              stepViz(vizRef.current.R, rx, ry, nowTs);
+              drawStickCanvas(leftCanvasRef.current, vizRef.current.L, store.leftSamples, leftCircErr, nowTs);
+              drawStickCanvas(rightCanvasRef.current, vizRef.current.R, store.rightSamples, rightCircErr, nowTs);
 
               setMetrics({
                 lx, ly, rx, ry,
@@ -3940,16 +4418,26 @@
             } else {
               activeGamepadIdxRef.current = null;
               setPadInfo(null);
-              drawStickCanvas(leftCanvasRef.current, 0, 0, [], 0);
-              drawStickCanvas(rightCanvasRef.current, 0, 0, [], 0);
+              const nowTs = performance.now();
+              stepViz(vizRef.current.L, 0, 0, nowTs);
+              stepViz(vizRef.current.R, 0, 0, nowTs);
+              drawStickCanvas(leftCanvasRef.current, vizRef.current.L, [], 0, nowTs);
+              drawStickCanvas(rightCanvasRef.current, vizRef.current.R, [], 0, nowTs);
             }
-
-            rafId = requestAnimationFrame(pollGamepad);
           };
 
           rafId = requestAnimationFrame(pollGamepad);
-          return () => cancelAnimationFrame(rafId);
+          return () => {
+            cancelAnimationFrame(rafId);
+            document.removeEventListener("visibilitychange", onVis);
+            if (hapticCleanupTimerRef.current) clearTimeout(hapticCleanupTimerRef.current);
+          };
         }, []);
+
+        // Xbox Series controllers: the Share button is only present on some models & isn't exposed by every browser/driver,
+        // so it is treated as already pressed (verified) and never has to be tested by hand.
+        const shareAutoVerified = activeLayout === "xbox";
+        const verifiedCount = metrics.buttonsCount + (shareAutoVerified && !metrics.testedIndices.includes(17) ? 1 : 0);
 
         const handleLogBenchmark = () => {
           const ctrlLabel = activeLayout === "xbox" ? "Xbox Controller" : "DualSense Controller";
@@ -3959,7 +4447,8 @@
             `• Overall Average Circularity Error: **${metrics.avgCircErr.toFixed(2)}%**`,
             `• Left Stick Center Drift: **${metrics.leftCenterErr.toFixed(2)}%** | Circularity Error: **${metrics.leftCircErr.toFixed(2)}%**`,
             `• Right Stick Center Drift: **${metrics.rightCenterErr.toFixed(2)}%** | Circularity Error: **${metrics.rightCircErr.toFixed(2)}%**`,
-            `• Verified Inputs: **${metrics.buttonsCount} buttons** + analog triggers`,
+            `• Verified Inputs: **${verifiedCount} buttons** + analog triggers`,
+            activeLayout === "dualsense" && micVerified ? "• Microphone test: **Passed** (live signal detected)" : null,
             testNotes.trim() ? `• Tech Notes: ${testNotes.trim()}` : null
           ].filter(Boolean).join("\n");
 
@@ -3974,17 +4463,19 @@
           });
           setSavedBanner(true);
           setTimeout(() => setSavedBanner(false), 3000);
+          // next test starts on the newest job again
+          jobPickedRef.current = false;
+          setSelectedJobId(newestJobId);
         };
 
         const btnVisual = idx => {
           const isActive = metrics.activeIndices.includes(idx);
-          const isTested = metrics.testedIndices.includes(idx);
+          const isTested = metrics.testedIndices.includes(idx) || (shareAutoVerified && idx === 17);
           if (isActive) {
             return {
               fill: "#00ff88",
               stroke: "#ffffff",
               strokeWidth: 2.2,
-              filter: "drop-shadow(0 0 10px #00ff88)",
               textFill: "#030705"
             };
           }
@@ -3993,7 +4484,6 @@
               fill: "#07140d",
               stroke: "rgba(0, 255, 136, 0.45)",
               strokeWidth: 1.8,
-              filter: "none",
               textFill: "rgba(0, 255, 136, 0.72)"
             };
           }
@@ -4001,22 +4491,22 @@
             fill: "rgba(255, 255, 255, 0.04)",
             stroke: "var(--ac)",
             strokeWidth: 2,
-            filter: "none",
             textFill: "rgba(226, 232, 240, 0.75)"
           };
         };
 
         const totalTargetInputs = activeLayout === "xbox" ? 18 : 19;
-        const testedPct = Math.min(100, Math.round((metrics.buttonsCount / totalTargetInputs) * 100));
+        const testedPct = Math.min(100, Math.round((verifiedCount / totalTargetInputs) * 100));
+        const shownPct = useTweenedNumber(testedPct, 600);
 
         return (
           <Fragment>
             <div className="ah" style={{ marginTop: 0, marginBottom: 16 }}>
               <div className="ph" style={{ margin: 0 }}>
                 <h2><span className="gradient-emerald-text">Hardware Bench &amp; Controller Diagnostics</span></h2>
-                <p>Auto-detects DualSense &amp; Xbox controllers for live input mapping, TMR circularity &amp; haptics testing.</p>
+                <p>Plug in a controller and press any button. Test inputs on the map, then check sticks, haptics and mic.</p>
               </div>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+              <div className="diag-toolbar">
                 <div className="seg" style={{ padding: 3, borderRadius: 9999 }}>
                   {[
                     ["auto", `Auto (${detectedType === "xbox" ? "Xbox" : "PS5"})`],
@@ -4068,37 +4558,23 @@
               </div>
             </div>
 
-            {/* Top KPI Telemetry Strip */}
-            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(175px, 1fr))", marginBottom: 16 }}>
-              <div className="card stat">
-                <div className="sic"><Icon name="target" size={20} /></div>
-                <div>
-                  <small>Avg Circularity Error</small>
-                  <b className={metrics.avgCircErr <= 7.5 ? "pos" : "amb"}>{metrics.avgCircErr.toFixed(2)}%</b>
+            {/* Status strip */}
+            {(() => {
+              const stickOk = metrics.avgCircErr <= 7.5;
+              const allDone = verifiedCount >= totalTargetInputs;
+              const verdict = !padInfo ? ["Waiting", ""] : (stickOk && allDone) ? ["PASS", "ok"] : (!stickOk ? ["CHECK STICKS", "warn"] : ["IN PROGRESS", ""]);
+              const tile = (label, value, cls) => (
+                <div className={`diag-kpi ${cls || ""}`}><small>{label}</small><b>{value}</b></div>
+              );
+              return (
+                <div className="diag-kpis">
+                  {tile("Bench Verdict", verdict[0], `verdict ${verdict[1]}`)}
+                  {tile("Inputs Verified", `${verifiedCount}/${totalTargetInputs}`, allDone ? "ok" : "")}
+                  {tile("Left Stick Error", `${metrics.leftCircErr.toFixed(1)}%`, metrics.leftCircErr <= 7.5 ? "ok" : "warn")}
+                  {tile("Right Stick Error", `${metrics.rightCircErr.toFixed(1)}%`, metrics.rightCircErr <= 7.5 ? "ok" : "warn")}
                 </div>
-              </div>
-              <div className="card stat">
-                <div className="sic"><Icon name="gamepad" size={20} /></div>
-                <div>
-                  <small>Left Stick Error</small>
-                  <b className={metrics.leftCircErr <= 7.5 ? "pos" : "amb"}>{metrics.leftCircErr.toFixed(2)}%</b>
-                </div>
-              </div>
-              <div className="card stat">
-                <div className="sic"><Icon name="gamepad" size={20} /></div>
-                <div>
-                  <small>Right Stick Error</small>
-                  <b className={metrics.rightCircErr <= 7.5 ? "pos" : "amb"}>{metrics.rightCircErr.toFixed(2)}%</b>
-                </div>
-              </div>
-              <div className="card stat">
-                <div className="sic"><Icon name="check" size={20} /></div>
-                <div>
-                  <small>Inputs Verified</small>
-                  <b>{metrics.buttonsCount} / {totalTargetInputs}</b>
-                </div>
-              </div>
-            </div>
+              );
+            })()}
 
             {/* Main Studio Workspace: Left = Accurate Controller Diagram, Right = Circularity + Vibration */}
             <div className="diag-studio-grid">
@@ -4115,7 +4591,7 @@
                   </div>
                   <div className="leg" style={{ margin: 0, fontSize: 11, gap: 10 }}>
                     <span><u style={{ background: "transparent", border: "1.5px solid var(--ac)" }} />Untested</span>
-                    <span><u style={{ background: "#00ff88", boxShadow: "0 0 8px #00ff88" }} />Pressed</span>
+                    <span><u style={{ background: "#00ff88" }} />Pressed</span>
                     <span><u style={{ background: "#07140d", border: "1.5px solid rgba(0,255,136,0.45)" }} />Tested</span>
                   </div>
                 </div>
@@ -4126,9 +4602,9 @@
                     <span style={{ color: "var(--mu)" }}>
                       {metrics.activeButtons.length > 0 ? `Active: ${metrics.activeButtons.join(" + ")}` : "Press buttons to verify"}
                     </span>
-                    <span style={{ color: "var(--ac)", fontWeight: 800 }}>{testedPct}% Tested</span>
+                    <span className="diag-pct" style={{ color: "var(--ac)", fontWeight: 800 }}>{Math.round(shownPct)}% Tested</span>
                   </div>
-                  <div className="mini-bar-track" style={{ margin: 0 }}>
+                  <div className="mini-bar-track diag-progress" style={{ margin: 0 }}>
                     <div className="mini-bar-fill" style={{ width: `${testedPct}%` }} />
                   </div>
                 </div>
@@ -4144,7 +4620,6 @@
                         stroke={btnVisual(6).stroke}
                         strokeWidth={btnVisual(6).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(6).filter, transition: "all 0.08s" }}
                       />
                       <text x="159" y="61" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="11" fontWeight="800" fill={btnVisual(6).textFill}>L2</text>
                     </g>
@@ -4157,7 +4632,6 @@
                         stroke={btnVisual(7).stroke}
                         strokeWidth={btnVisual(7).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(7).filter, transition: "all 0.08s" }}
                       />
                       <text x="481" y="61" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="11" fontWeight="800" fill={btnVisual(7).textFill}>R2</text>
                     </g>
@@ -4170,7 +4644,6 @@
                         stroke={btnVisual(4).stroke}
                         strokeWidth={btnVisual(4).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(4).filter, transition: "all 0.08s" }}
                       />
                     </g>
 
@@ -4182,7 +4655,6 @@
                         stroke={btnVisual(5).stroke}
                         strokeWidth={btnVisual(5).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(5).filter, transition: "all 0.08s" }}
                       />
                     </g>
 
@@ -4221,7 +4693,6 @@
                         fill={metrics.touches.length > 0 && !hidTouchRef.current.click ? "rgba(0, 255, 136, 0.16)" : btnVisual(17).fill}
                         stroke={btnVisual(17).stroke}
                         strokeWidth={btnVisual(17).strokeWidth}
-                        style={{ filter: btnVisual(17).filter, transition: "all 0.08s" }}
                       />
                       <text x="320" y="164" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10" fontWeight="700" fill={metrics.touches.length > 0 && !hidTouchRef.current.click ? "#00ff88" : btnVisual(17).textFill}>
                         {metrics.touches.length > 0 ? `TOUCH (${metrics.touches.length}F)` : "TOUCHPAD"}
@@ -4232,7 +4703,7 @@
                         return (
                           <g key={idx}>
                             <circle cx={tx} cy={ty} r="10" fill="rgba(0, 255, 136, 0.28)" />
-                            <circle cx={tx} cy={ty} r="5.5" fill="#00ff88" stroke="#ffffff" strokeWidth="1.6" style={{ filter: "drop-shadow(0 0 8px #00ff88)" }} />
+                            <circle cx={tx} cy={ty} r="5.5" fill="#00ff88" stroke="#ffffff" strokeWidth="1.6" />
                           </g>
                         );
                       })}
@@ -4245,41 +4716,41 @@
 
                     {/* Tilted Create (8) & Options (9) Pills */}
                     <g transform="rotate(-14 196 138)">
-                      <rect x="190" y="126" width="12" height="24" rx="6" fill={btnVisual(8).fill} stroke={btnVisual(8).stroke} strokeWidth={btnVisual(8).strokeWidth} style={{ filter: btnVisual(8).filter, transition: "all 0.08s" }} />
+                      <rect x="190" y="126" width="12" height="24" rx="6" fill={btnVisual(8).fill} stroke={btnVisual(8).stroke} strokeWidth={btnVisual(8).strokeWidth} />
                     </g>
                     <g transform="rotate(14 444 138)">
-                      <rect x="438" y="126" width="12" height="24" rx="6" fill={btnVisual(9).fill} stroke={btnVisual(9).stroke} strokeWidth={btnVisual(9).strokeWidth} style={{ filter: btnVisual(9).filter, transition: "all 0.08s" }} />
+                      <rect x="438" y="126" width="12" height="24" rx="6" fill={btnVisual(9).fill} stroke={btnVisual(9).stroke} strokeWidth={btnVisual(9).strokeWidth} />
                     </g>
 
                     {/* Sculpted DualSense D-Pad: Up (12), Down (13), Left (14), Right (15) */}
                     <g>
-                      <path d="M 142,150 Q 154,146 166,150 L 166,170 L 154,180 L 142,170 Z" fill={btnVisual(12).fill} stroke={btnVisual(12).stroke} strokeWidth={btnVisual(12).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(12).filter, transition: "all 0.08s" }} />
-                      <path d="M 142,222 Q 154,226 166,222 L 166,202 L 154,192 L 142,202 Z" fill={btnVisual(13).fill} stroke={btnVisual(13).stroke} strokeWidth={btnVisual(13).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(13).filter, transition: "all 0.08s" }} />
-                      <path d="M 118,174 Q 114,186 118,198 L 138,198 L 148,186 L 138,174 Z" fill={btnVisual(14).fill} stroke={btnVisual(14).stroke} strokeWidth={btnVisual(14).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(14).filter, transition: "all 0.08s" }} />
-                      <path d="M 190,174 Q 194,186 190,198 L 170,198 L 160,186 L 170,174 Z" fill={btnVisual(15).fill} stroke={btnVisual(15).stroke} strokeWidth={btnVisual(15).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(15).filter, transition: "all 0.08s" }} />
+                      <path d="M 142,150 Q 154,146 166,150 L 166,170 L 154,180 L 142,170 Z" fill={btnVisual(12).fill} stroke={btnVisual(12).stroke} strokeWidth={btnVisual(12).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 142,222 Q 154,226 166,222 L 166,202 L 154,192 L 142,202 Z" fill={btnVisual(13).fill} stroke={btnVisual(13).stroke} strokeWidth={btnVisual(13).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 118,174 Q 114,186 118,198 L 138,198 L 148,186 L 138,174 Z" fill={btnVisual(14).fill} stroke={btnVisual(14).stroke} strokeWidth={btnVisual(14).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 190,174 Q 194,186 190,198 L 170,198 L 160,186 L 170,174 Z" fill={btnVisual(15).fill} stroke={btnVisual(15).stroke} strokeWidth={btnVisual(15).strokeWidth} strokeLinejoin="round" />
                     </g>
 
                     {/* Face Buttons: Triangle (3), Circle (1), Cross (0), Square (2) */}
                     <g>
-                      <circle cx="486" cy="150" r="16" fill={btnVisual(3).fill} stroke={btnVisual(3).stroke} strokeWidth={btnVisual(3).strokeWidth} style={{ filter: btnVisual(3).filter, transition: "all 0.08s" }} />
+                      <circle cx="486" cy="150" r="16" fill={btnVisual(3).fill} stroke={btnVisual(3).stroke} strokeWidth={btnVisual(3).strokeWidth} />
                       <text x="486" y="154" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fontWeight="800" fill={btnVisual(3).textFill}>△</text>
                     </g>
                     <g>
-                      <circle cx="520" cy="184" r="16" fill={btnVisual(1).fill} stroke={btnVisual(1).stroke} strokeWidth={btnVisual(1).strokeWidth} style={{ filter: btnVisual(1).filter, transition: "all 0.08s" }} />
+                      <circle cx="520" cy="184" r="16" fill={btnVisual(1).fill} stroke={btnVisual(1).stroke} strokeWidth={btnVisual(1).strokeWidth} />
                       <text x="520" y="188" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fontWeight="800" fill={btnVisual(1).textFill}>○</text>
                     </g>
                     <g>
-                      <circle cx="486" cy="218" r="16" fill={btnVisual(0).fill} stroke={btnVisual(0).stroke} strokeWidth={btnVisual(0).strokeWidth} style={{ filter: btnVisual(0).filter, transition: "all 0.08s" }} />
+                      <circle cx="486" cy="218" r="16" fill={btnVisual(0).fill} stroke={btnVisual(0).stroke} strokeWidth={btnVisual(0).strokeWidth} />
                       <text x="486" y="223" textAnchor="middle" fontFamily="sans-serif" fontSize="14" fontWeight="800" fill={btnVisual(0).textFill}>✕</text>
                     </g>
                     <g>
-                      <circle cx="452" cy="184" r="16" fill={btnVisual(2).fill} stroke={btnVisual(2).stroke} strokeWidth={btnVisual(2).strokeWidth} style={{ filter: btnVisual(2).filter, transition: "all 0.08s" }} />
+                      <circle cx="452" cy="184" r="16" fill={btnVisual(2).fill} stroke={btnVisual(2).stroke} strokeWidth={btnVisual(2).strokeWidth} />
                       <text x="452" y="188" textAnchor="middle" fontFamily="sans-serif" fontSize="13" fontWeight="800" fill={btnVisual(2).textFill}>□</text>
                     </g>
 
                     {/* PS Button (16) & Interactive Mic Mute Pill (18) */}
                     <g>
-                      <circle cx="320" cy="252" r="14" fill={btnVisual(16).fill} stroke={btnVisual(16).stroke} strokeWidth={btnVisual(16).strokeWidth} style={{ filter: btnVisual(16).filter, transition: "all 0.08s" }} />
+                      <circle cx="320" cy="252" r="14" fill={btnVisual(16).fill} stroke={btnVisual(16).stroke} strokeWidth={btnVisual(16).strokeWidth} />
                       <text x="320" y="256" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="9.5" fontWeight="800" fill={btnVisual(16).textFill}>PS</text>
                     </g>
                     <g>
@@ -4292,20 +4763,19 @@
                         fill={btnVisual(18).fill}
                         stroke={btnVisual(18).stroke}
                         strokeWidth={btnVisual(18).strokeWidth}
-                        style={{ filter: btnVisual(18).filter, transition: "all 0.08s" }}
                       />
                     </g>
 
                     {/* Symmetric Thumbsticks: L3 (10) & R3 (11) */}
                     <circle cx="234" cy="254" r="35" fill="rgba(0,0,0,0.45)" stroke="var(--ac)" strokeOpacity="0.45" strokeWidth="2.2" />
                     <g transform={`translate(${metrics.lx * 14}, ${metrics.ly * 14})`}>
-                      <circle cx="234" cy="254" r="24" fill={btnVisual(10).fill} stroke={btnVisual(10).stroke} strokeWidth={btnVisual(10).strokeWidth} style={{ filter: btnVisual(10).filter, transition: "fill 0.08s, stroke 0.08s" }} />
+                      <circle cx="234" cy="254" r="24" fill={btnVisual(10).fill} stroke={btnVisual(10).stroke} strokeWidth={btnVisual(10).strokeWidth} />
                       <text x="234" y="258" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10" fontWeight="800" fill={btnVisual(10).textFill}>L3</text>
                     </g>
 
                     <circle cx="406" cy="254" r="35" fill="rgba(0,0,0,0.45)" stroke="var(--ac)" strokeOpacity="0.45" strokeWidth="2.2" />
                     <g transform={`translate(${metrics.rx * 14}, ${metrics.ry * 14})`}>
-                      <circle cx="406" cy="254" r="24" fill={btnVisual(11).fill} stroke={btnVisual(11).stroke} strokeWidth={btnVisual(11).strokeWidth} style={{ filter: btnVisual(11).filter, transition: "fill 0.08s, stroke 0.08s" }} />
+                      <circle cx="406" cy="254" r="24" fill={btnVisual(11).fill} stroke={btnVisual(11).stroke} strokeWidth={btnVisual(11).strokeWidth} />
                       <text x="406" y="258" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="10" fontWeight="800" fill={btnVisual(11).textFill}>R3</text>
                     </g>
                   </svg>
@@ -4320,7 +4790,6 @@
                         stroke={btnVisual(6).stroke}
                         strokeWidth={btnVisual(6).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(6).filter, transition: "all 0.08s" }}
                       />
                       <text x="147" y="64" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="11" fontWeight="800" fill={btnVisual(6).textFill}>LT</text>
                     </g>
@@ -4333,7 +4802,6 @@
                         stroke={btnVisual(7).stroke}
                         strokeWidth={btnVisual(7).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(7).filter, transition: "all 0.08s" }}
                       />
                       <text x="493" y="64" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="11" fontWeight="800" fill={btnVisual(7).textFill}>RT</text>
                     </g>
@@ -4346,7 +4814,6 @@
                         stroke={btnVisual(4).stroke}
                         strokeWidth={btnVisual(4).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(4).filter, transition: "all 0.08s" }}
                       />
                     </g>
 
@@ -4358,7 +4825,6 @@
                         stroke={btnVisual(5).stroke}
                         strokeWidth={btnVisual(5).strokeWidth}
                         strokeLinejoin="round"
-                        style={{ filter: btnVisual(5).filter, transition: "all 0.08s" }}
                       />
                     </g>
 
@@ -4391,8 +4857,8 @@
                     />
 
                     {/* Xbox Guide Button (16) with Sphere X Mark */}
-                    <g style={{ filter: metrics.activeIndices.includes(16) ? "drop-shadow(0 0 12px #00ff88)" : "drop-shadow(0 0 6px color-mix(in srgb, var(--ac) 50%, transparent))" }}>
-                      <circle cx="320" cy="144" r="21" fill={btnVisual(16).fill} stroke={btnVisual(16).stroke} strokeWidth={btnVisual(16).strokeWidth} style={{ transition: "all 0.08s" }} />
+                    <g>
+                      <circle cx="320" cy="144" r="21" fill={btnVisual(16).fill} stroke={btnVisual(16).stroke} strokeWidth={btnVisual(16).strokeWidth} />
                       <path
                         d="M 307,130 C 315,137 325,146 333,157 M 333,130 C 325,137 315,146 307,157"
                         fill="none"
@@ -4404,16 +4870,16 @@
 
                     {/* View (8), Share (17), Menu (9) */}
                     <g>
-                      <circle cx="276" cy="196" r="13" fill={btnVisual(8).fill} stroke={btnVisual(8).stroke} strokeWidth={btnVisual(8).strokeWidth} style={{ filter: btnVisual(8).filter, transition: "all 0.08s" }} />
+                      <circle cx="276" cy="196" r="13" fill={btnVisual(8).fill} stroke={btnVisual(8).stroke} strokeWidth={btnVisual(8).strokeWidth} />
                       <rect x="270" y="191" width="7" height="6" rx="1" fill="none" stroke={btnVisual(8).textFill} strokeWidth="1.4" />
                       <rect x="274" y="195" width="7" height="6" rx="1" fill="none" stroke={btnVisual(8).textFill} strokeWidth="1.4" />
                     </g>
                     <g>
-                      <rect x="304" y="214" width="32" height="17" rx="8.5" fill={btnVisual(17).fill} stroke={btnVisual(17).stroke} strokeWidth={btnVisual(17).strokeWidth} style={{ filter: btnVisual(17).filter, transition: "all 0.08s" }} />
+                      <rect x="304" y="214" width="32" height="17" rx="8.5" fill={btnVisual(17).fill} stroke={btnVisual(17).stroke} strokeWidth={btnVisual(17).strokeWidth} />
                       <path d="M 314,225 L 314,227 L 326,227 L 326,225 M 320,225 L 320,218 M 317,221 L 320,218 L 323,221" fill="none" stroke={btnVisual(17).textFill} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                     </g>
                     <g>
-                      <circle cx="364" cy="196" r="13" fill={btnVisual(9).fill} stroke={btnVisual(9).stroke} strokeWidth={btnVisual(9).strokeWidth} style={{ filter: btnVisual(9).filter, transition: "all 0.08s" }} />
+                      <circle cx="364" cy="196" r="13" fill={btnVisual(9).fill} stroke={btnVisual(9).stroke} strokeWidth={btnVisual(9).strokeWidth} />
                       <path d="M 358,192 L 370,192 M 358,196 L 370,196 M 358,200 L 370,200" stroke={btnVisual(9).textFill} strokeWidth="1.6" strokeLinecap="round" />
                     </g>
 
@@ -4421,17 +4887,17 @@
                     <circle cx="164" cy="196" r="39" fill="rgba(0,0,0,0.45)" stroke="var(--ac)" strokeOpacity="0.55" strokeWidth="2.4" />
                     <circle cx="164" cy="196" r="31" fill="none" stroke="var(--ac)" strokeOpacity="0.3" strokeWidth="1.5" />
                     <g transform={`translate(${metrics.lx * 14}, ${metrics.ly * 14})`}>
-                      <circle cx="164" cy="196" r="22" fill={btnVisual(10).fill} stroke={btnVisual(10).stroke} strokeWidth={btnVisual(10).strokeWidth} style={{ filter: btnVisual(10).filter, transition: "fill 0.08s, stroke 0.08s" }} />
+                      <circle cx="164" cy="196" r="22" fill={btnVisual(10).fill} stroke={btnVisual(10).stroke} strokeWidth={btnVisual(10).strokeWidth} />
                       <text x="164" y="200" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="9.5" fontWeight="800" fill={btnVisual(10).textFill}>LS</text>
                     </g>
 
                     {/* Hybrid Circular D-Pad (12, 13, 14, 15) */}
                     <circle cx="242" cy="276" r="44" fill="rgba(0,0,0,0.38)" stroke="var(--ac)" strokeOpacity="0.55" strokeWidth="2.4" />
                     <g>
-                      <path d="M 229,237 L 255,237 L 255,263 L 229,263 Z" fill={btnVisual(12).fill} stroke={btnVisual(12).stroke} strokeWidth={btnVisual(12).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(12).filter, transition: "all 0.08s" }} />
-                      <path d="M 229,289 L 255,289 L 255,315 L 229,315 Z" fill={btnVisual(13).fill} stroke={btnVisual(13).stroke} strokeWidth={btnVisual(13).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(13).filter, transition: "all 0.08s" }} />
-                      <path d="M 203,263 L 229,263 L 229,289 L 203,289 Z" fill={btnVisual(14).fill} stroke={btnVisual(14).stroke} strokeWidth={btnVisual(14).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(14).filter, transition: "all 0.08s" }} />
-                      <path d="M 255,263 L 281,263 L 281,289 L 255,289 Z" fill={btnVisual(15).fill} stroke={btnVisual(15).stroke} strokeWidth={btnVisual(15).strokeWidth} strokeLinejoin="round" style={{ filter: btnVisual(15).filter, transition: "all 0.08s" }} />
+                      <path d="M 229,237 L 255,237 L 255,263 L 229,263 Z" fill={btnVisual(12).fill} stroke={btnVisual(12).stroke} strokeWidth={btnVisual(12).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 229,289 L 255,289 L 255,315 L 229,315 Z" fill={btnVisual(13).fill} stroke={btnVisual(13).stroke} strokeWidth={btnVisual(13).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 203,263 L 229,263 L 229,289 L 203,289 Z" fill={btnVisual(14).fill} stroke={btnVisual(14).stroke} strokeWidth={btnVisual(14).strokeWidth} strokeLinejoin="round" />
+                      <path d="M 255,263 L 281,263 L 281,289 L 255,289 Z" fill={btnVisual(15).fill} stroke={btnVisual(15).stroke} strokeWidth={btnVisual(15).strokeWidth} strokeLinejoin="round" />
                       <rect x="231" y="265" width="22" height="22" fill="rgba(6, 14, 10, 0.9)" />
                     </g>
 
@@ -4439,25 +4905,25 @@
                     <circle cx="400" cy="276" r="39" fill="rgba(0,0,0,0.45)" stroke="var(--ac)" strokeOpacity="0.55" strokeWidth="2.4" />
                     <circle cx="400" cy="276" r="31" fill="none" stroke="var(--ac)" strokeOpacity="0.3" strokeWidth="1.5" />
                     <g transform={`translate(${metrics.rx * 14}, ${metrics.ry * 14})`}>
-                      <circle cx="400" cy="276" r="22" fill={btnVisual(11).fill} stroke={btnVisual(11).stroke} strokeWidth={btnVisual(11).strokeWidth} style={{ filter: btnVisual(11).filter, transition: "fill 0.08s, stroke 0.08s" }} />
+                      <circle cx="400" cy="276" r="22" fill={btnVisual(11).fill} stroke={btnVisual(11).stroke} strokeWidth={btnVisual(11).strokeWidth} />
                       <text x="400" y="280" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="9.5" fontWeight="800" fill={btnVisual(11).textFill}>RS</text>
                     </g>
 
                     {/* Face Buttons: Y (3), B (1), A (0), X (2) */}
                     <g>
-                      <circle cx="476" cy="160" r="18" fill={btnVisual(3).fill} stroke={btnVisual(3).stroke} strokeWidth={btnVisual(3).strokeWidth} style={{ filter: btnVisual(3).filter, transition: "all 0.08s" }} />
+                      <circle cx="476" cy="160" r="18" fill={btnVisual(3).fill} stroke={btnVisual(3).stroke} strokeWidth={btnVisual(3).strokeWidth} />
                       <text x="476" y="165" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="13.5" fontWeight="800" fill={btnVisual(3).textFill}>Y</text>
                     </g>
                     <g>
-                      <circle cx="514" cy="196" r="18" fill={btnVisual(1).fill} stroke={btnVisual(1).stroke} strokeWidth={btnVisual(1).strokeWidth} style={{ filter: btnVisual(1).filter, transition: "all 0.08s" }} />
+                      <circle cx="514" cy="196" r="18" fill={btnVisual(1).fill} stroke={btnVisual(1).stroke} strokeWidth={btnVisual(1).strokeWidth} />
                       <text x="514" y="201" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="13.5" fontWeight="800" fill={btnVisual(1).textFill}>B</text>
                     </g>
                     <g>
-                      <circle cx="476" cy="232" r="18" fill={btnVisual(0).fill} stroke={btnVisual(0).stroke} strokeWidth={btnVisual(0).strokeWidth} style={{ filter: btnVisual(0).filter, transition: "all 0.08s" }} />
+                      <circle cx="476" cy="232" r="18" fill={btnVisual(0).fill} stroke={btnVisual(0).stroke} strokeWidth={btnVisual(0).strokeWidth} />
                       <text x="476" y="237" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="13.5" fontWeight="800" fill={btnVisual(0).textFill}>A</text>
                     </g>
                     <g>
-                      <circle cx="438" cy="196" r="18" fill={btnVisual(2).fill} stroke={btnVisual(2).stroke} strokeWidth={btnVisual(2).strokeWidth} style={{ filter: btnVisual(2).filter, transition: "all 0.08s" }} />
+                      <circle cx="438" cy="196" r="18" fill={btnVisual(2).fill} stroke={btnVisual(2).stroke} strokeWidth={btnVisual(2).strokeWidth} />
                       <text x="438" y="201" textAnchor="middle" fontFamily="'JetBrains Mono', monospace" fontSize="13.5" fontWeight="800" fill={btnVisual(2).textFill}>X</text>
                     </g>
                   </svg>
@@ -4470,7 +4936,7 @@
                       <span>{activeLayout === "xbox" ? "LT Trigger" : "L2 Trigger"}</span>
                       <span style={{ color: "var(--ac)" }}>{Math.round(metrics.l2 * 100)}%</span>
                     </div>
-                    <div className="mini-bar-track" style={{ margin: "6px 0 0" }}>
+                    <div className="mini-bar-track live-meter" style={{ margin: "6px 0 0" }}>
                       <div className="mini-bar-fill" style={{ width: `${Math.round(metrics.l2 * 100)}%`, animation: "none" }} />
                     </div>
                   </div>
@@ -4479,7 +4945,7 @@
                       <span>{activeLayout === "xbox" ? "RT Trigger" : "R2 Trigger"}</span>
                       <span style={{ color: "var(--ac)" }}>{Math.round(metrics.r2 * 100)}%</span>
                     </div>
-                    <div className="mini-bar-track" style={{ margin: "6px 0 0" }}>
+                    <div className="mini-bar-track live-meter" style={{ margin: "6px 0 0" }}>
                       <div className="mini-bar-fill" style={{ width: `${Math.round(metrics.r2 * 100)}%`, animation: "none" }} />
                     </div>
                   </div>
@@ -4488,7 +4954,15 @@
 
               {/* RIGHT PANEL: STICK CIRCULARITY + VIBRATION TESTER */}
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div className="diag-tabs">
+                  <button type="button" className={rightTab === "sticks" ? "on" : ""} onClick={() => setRightTab("sticks")}>Sticks</button>
+                  <button type="button" className={rightTab === "haptics" ? "on" : ""} onClick={() => setRightTab("haptics")}>Haptics</button>
+                  {activeLayout === "dualsense" && (
+                    <button type="button" className={rightTab === "mic" ? "on" : ""} onClick={() => setRightTab("mic")}>Mic</button>
+                  )}
+                </div>
                 {/* Stick Circularity Card */}
+                {rightTab === "sticks" && (
                 <div className="card" style={{ padding: "18px 20px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 8 }}>
                     <div>
@@ -4534,8 +5008,10 @@
                   </div>
                 </div>
 
+                )}
+
                 {/* Built-In DualSense Calibration (dualshock-tools WebHID) */}
-                {activeLayout === "dualsense" && (
+                {rightTab === "sticks" && activeLayout === "dualsense" && (
                   <div className="card" style={{ padding: "18px 20px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
                       <div>
@@ -4591,6 +5067,7 @@
                 )}
 
                 {/* Vibration & Trigger Haptics Tester */}
+                {rightTab === "haptics" && (
                 <div className="card" style={{ padding: "18px 20px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, gap: 8, flexWrap: "wrap" }}>
                     <div>
@@ -4610,7 +5087,11 @@
                     max="1"
                     step="0.05"
                     value={hapticIntensity}
-                    onChange={e => setHapticIntensity(Number(e.target.value))}
+                    onChange={e => {
+                      const val = Number(e.target.value);
+                      hapticIntensityRef.current = val;
+                      setHapticIntensity(val);
+                    }}
                     style={{ padding: 0, height: 6, accentColor: "var(--ac)", cursor: "pointer", margin: "4px 0 8px" }}
                   />
 
@@ -4642,65 +5123,128 @@
                     {hapticMsg}
                   </p>
                 </div>
+
+                )}
+
+                {/* DualSense Microphone Test */}
+                {rightTab === "mic" && activeLayout === "dualsense" && (
+                  <div className={`card mic-card${micState === "live" ? " live" : ""}`} style={{ padding: "18px 20px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, gap: 8, flexWrap: "wrap" }}>
+                      <div>
+                        <h3 style={{ color: "var(--ac)" }}><span className="mic-dot" />DualSense Microphone Test</h3>
+                        <small>Live level meter, speaker loopback &amp; record-and-playback (USB)</small>
+                      </div>
+                      <span className={`chip ${micVerified ? "Completed" : "Pending"}`}>
+                        {micVerified ? "Mic Verified" : micState === "live" ? "Listening…" : "Not tested"}
+                      </span>
+                    </div>
+
+                    <div style={{ display: "flex", gap: 8, marginBottom: 10, alignItems: "center" }}>
+                    <select
+                      value={micDeviceId}
+                      disabled={micState === "starting"}
+                      onChange={e => { setMicDeviceId(e.target.value); if (micState === "live") startMicTest(e.target.value); }}
+                      style={{ flex: 1, minWidth: 0 }}
+                    >
+                      <option value="">Auto-detect DualSense mic</option>
+                      {micDevices.map((d, i) => (
+                        <option key={d.deviceId || i} value={d.deviceId}>{d.label || `Microphone ${i + 1}`}{isDualSenseMic(d) ? " ★" : ""}</option>
+                      ))}
+                    </select>
+                    <button type="button" className="b" onClick={scanMics} title="Ask for mic permission and list every microphone">Scan Mics</button>
+                    </div>
+
+                    <canvas ref={micCanvasRef} className="mic-canvas" width="640" height="96" />
+
+                    <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: "var(--mu)", margin: "8px 0 10px", gap: 8, flexWrap: "wrap" }}>
+                      <span>Level <b style={{ color: "var(--ac)" }}>{micState === "live" ? `${micDb} dB` : "—"}</b></span>
+                      <span>Peak <b style={{ color: "var(--ac)" }}>{micState === "live" ? `${micPeakDb} dB` : "—"}</b></span>
+                      <span>
+                        Mute button{" "}
+                        <b style={{ color: metrics.activeIndices.includes(18) ? "#00ff88" : "var(--mu)" }}>
+                          {metrics.activeIndices.includes(18) ? "PRESSED" : metrics.testedIndices.includes(18) ? "tested ✓" : hidDeviceInfo ? "untested" : "needs WebHID"}
+                        </b>
+                      </span>
+                    </div>
+
+                    <div className="haptic-grid">
+                      {micState === "live" ? (
+                        <button type="button" className="b red haptic-btn" onClick={stopMicTest}>Stop Mic Test</button>
+                      ) : (
+                        <button type="button" className="b pri haptic-btn" disabled={micState === "starting"} onClick={() => startMicTest(micDeviceId)}>
+                          {micState === "starting" ? "Starting…" : "Start Mic Test"}
+                        </button>
+                      )}
+                      <button type="button" className={`b haptic-btn${micMonitor ? " firing" : ""}`} disabled={micState !== "live"} onClick={toggleMicMonitor}>
+                        {micMonitor ? "Loopback: ON" : "Hear Myself"}
+                      </button>
+                      <button type="button" className={`b haptic-btn${micRecState === "recording" ? " rec" : ""}`} disabled={micState !== "live" || micRecState === "recording"} onClick={recordMicClip}>
+                        {micRecState === "recording" ? "Recording…" : "Record 4s Clip"}
+                      </button>
+                      <button type="button" className="b haptic-btn" disabled={micVerified === false && micState !== "live"} onClick={() => setMicVerified(false)}>
+                        Clear Result
+                      </button>
+                    </div>
+
+                    {micClipUrl && micRecState !== "recording" && (
+                      <audio controls src={micClipUrl} style={{ width: "100%", marginTop: 10, height: 36 }} />
+                    )}
+
+                    <p className="note" style={{ marginTop: 10, fontFamily: "'JetBrains Mono', monospace", fontSize: 11 }}>
+                      {micMsg}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Streamlined QA Log Bar */}
-            <div className="card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 8 }}>
-                <div>
-                  <h3 style={{ color: "var(--ac)" }}>Save Benchmark to Job QA</h3>
-                  <small>Attaches circularity metrics &amp; button verification directly to a repair ticket &amp; receipt</small>
-                </div>
-                {savedBanner && <span className="chip Completed"><Icon name="check" size={12} /> Saved to QA Logs!</span>}
+            {/* Sticky QA Log Bar */}
+            <div className="card diag-qa-bar">
+              <div className="diag-qa-title">
+                <Icon name="check" size={14} /> Save to QA
+                {savedBanner && <span className="chip Completed" style={{ marginLeft: 4 }}>Saved!</span>}
               </div>
-              <div className="form-grid-2" style={{ alignItems: "end" }}>
-                <label>
-                  Target Job Ticket
-                  <select value={selectedJobId} onChange={e => setSelectedJobId(e.target.value)} style={{ marginTop: 6 }}>
-                    <option value="0">-- General Bench Test (Unlinked) --</option>
-                    {[...state.jobs].reverse().map(j => (
-                      <option key={j.id} value={String(j.id)}>#{j.id} {j.customer} — {j.device}</option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  Technician Notes (Optional)
-                  <input
-                    type="text"
-                    placeholder="e.g. Ginfull TMR calibrated, motors & triggers verified"
-                    value={testNotes}
-                    onChange={e => setTestNotes(e.target.value)}
-                    style={{ marginTop: 6 }}
-                  />
-                </label>
-              </div>
-              <div style={{ marginTop: 14, display: "flex", justifyContent: "flex-end" }}>
-                <button type="button" className="b pri" onClick={handleLogBenchmark}>
-                  <Icon name="check" size={14} /> Log Benchmark to QA
-                </button>
-              </div>
+              <select value={selectedJobId} onChange={e => { jobPickedRef.current = true; setSelectedJobId(e.target.value); }} aria-label="Target job ticket">
+                <option value="0">General bench test (unlinked)</option>
+                {[...state.jobs].reverse().map(j => (
+                  <option key={j.id} value={String(j.id)}>#{j.id} {j.customer} — {j.device}</option>
+                ))}
+              </select>
+              <input
+                type="text"
+                placeholder="Technician notes (optional)"
+                value={testNotes}
+                onChange={e => setTestNotes(e.target.value)}
+                aria-label="Technician notes"
+              />
+              <button type="button" className="b pri" onClick={handleLogBenchmark}>
+                <Icon name="check" size={14} /> Log Benchmark
+              </button>
             </div>
           </Fragment>
         );
       };
 
       // =========================================================================
-      // UK HMRC SOLE TRADER TAX-YEAR & TRADING ALLOWANCE TRACKER
+      // UK HMRC SOLE TRADER TAX-YEAR, TRADING ALLOWANCE & SET-ASIDE ESTIMATOR
       // =========================================================================
-      const TaxView = ({ state, onExportHmrcCsv }) => {
+      const TaxView = ({ state, searchQuery, onExportHmrcCsv }) => {
         const cur = state.settings.currency || "£";
+        const [ledgerFilter, setLedgerFilter] = useState("All");
+        const currentTaxYear = getUkTaxYear(todayIso());
+
         const availableYears = useMemo(() => {
-          const set = new Set(["2026/27", "2027/28"]);
+          const set = new Set(["2026/27", "2027/28", currentTaxYear]);
           state.jobs.forEach(j => { if (j.date) set.add(getUkTaxYear(j.date)); });
           state.expenses.forEach(e => { if (e.date) set.add(getUkTaxYear(e.date)); });
           return [...set].sort().reverse();
-        }, [state.jobs, state.expenses]);
+        }, [state.jobs, state.expenses, currentTaxYear]);
 
-        const [taxYear, setTaxYear] = useState("2026/27");
+        const [taxYear, setTaxYear] = useState(currentTaxYear);
         const startYearNum = Number(taxYear.split("/")[0]) || 2026;
         const periodLabel = `6 Apr ${startYearNum} – 5 Apr ${startYearNum + 1}`;
         const tradingAllowanceLimit = startYearNum >= 2027 ? 3000 : 1000;
+        const allowanceLabel = `${cur}${tradingAllowanceLimit.toLocaleString()}`;
 
         const yearJobs = state.jobs.filter(j => j.status === "Completed" && getUkTaxYear(j.date) === taxYear);
         const yearExpenses = state.expenses.filter(e => getUkTaxYear(e.date) === taxYear);
@@ -4714,25 +5258,98 @@
           expByCategory[cat] += +e.amount || 0;
         });
 
+        // Deduction method: flat Trading Allowance vs actual expenses (whichever is larger)
         const taxableWithExpenses = Math.max(0, grossTurnover - allowableExpenses);
         const taxableWithAllowance = Math.max(0, grossTurnover - tradingAllowanceLimit);
         const useTradingAllowance = tradingAllowanceLimit > allowableExpenses;
         const bestTaxableProfit = useTradingAllowance ? taxableWithAllowance : taxableWithExpenses;
-        const recommendedMethod = useTradingAllowance ? `£${tradingAllowanceLimit.toLocaleString()} Trading Allowance` : "Actual Allowable Expenses";
+        const recommendedMethod = useTradingAllowance ? `${allowanceLabel} Trading Allowance` : "Actual Expenses";
+        const saving = Math.abs(taxableWithExpenses - taxableWithAllowance);
+        const needsSA = grossTurnover > tradingAllowanceLimit;
+
+        // Estimated liability — England / Wales / NI rates, no other income, no student loan, no payments on account
+        const profit = bestTaxableProfit;
+        const personalAllowance = profit > 125140 ? 0 : profit > 100000 ? Math.max(0, 12570 - (profit - 100000) / 2) : 12570;
+        const taxableIncome = Math.max(0, profit - personalAllowance);
+        const basicAmt = Math.min(taxableIncome, 37700);
+        const higherAmt = Math.min(Math.max(0, taxableIncome - 37700), 125140 - 37700);
+        const addAmt = Math.max(0, taxableIncome - 125140);
+        const incomeTax = basicAmt * 0.2 + higherAmt * 0.4 + addAmt * 0.45;
+        const class4 = Math.max(0, Math.min(profit, 50270) - 12570) * 0.06 + Math.max(0, profit - 50270) * 0.02;
+        const totalTax = needsSA ? incomeTax + class4 : 0;
+        const cashAfterTax = grossTurnover - allowableExpenses - totalTax;
+        const effRate = profit > 0 && needsSA ? (totalTax / profit) * 100 : 0;
+        const setAsidePerMonth = totalTax / 12;
+
+        // Deadlines
+        const regDeadline = `5 Oct ${startYearNum + 1}`;
+        const fileDeadline = `31 Jan ${startYearNum + 2}`;
+        const daysToFile = Math.ceil((Date.UTC(startYearNum + 2, 0, 31) - Date.now()) / 864e5);
+
+        // Monthly cash-basis chart (Apr → Mar)
+        const monthKeys = Array.from({ length: 12 }, (_, i) => {
+          const mIdx = (3 + i) % 12;
+          const y = startYearNum + (3 + i >= 12 ? 1 : 0);
+          return `${y}-${String(mIdx + 1).padStart(2, "0")}`;
+        });
+        const monthly = {};
+        monthKeys.forEach(k => { monthly[k] = { inc: 0, exp: 0, n: 0 }; });
+        const bucketFor = d => {
+          const k = (d || "").slice(0, 7);
+          if (monthly[k]) return monthly[k];
+          return k === `${startYearNum + 1}-04` ? monthly[monthKeys[11]] : null;
+        };
+        yearJobs.forEach(j => { const b = bucketFor(j.date); if (b) { b.inc += +j.price || 0; b.n++; } });
+        yearExpenses.forEach(e => { const b = bucketFor(e.date); if (b) { b.exp += +e.amount || 0; } });
+        const maxBar = Math.max(1, ...monthKeys.map(k => Math.max(monthly[k].inc, monthly[k].exp)));
+
+        // Where the money goes (donut)
+        const splitParts = [
+          { l: "Allowable Expenses", v: allowableExpenses, c: "#22d3ee" },
+          { l: "Income Tax", v: needsSA ? incomeTax : 0, c: "#f59e0b" },
+          { l: "Class 4 NI", v: needsSA ? class4 : 0, c: "#f43f5e" },
+          { l: "Left In Your Pocket", v: Math.max(0, cashAfterTax), c: "var(--ac)" }
+        ];
+        const splitTotal = splitParts.reduce((s, p) => s + p.v, 0);
+        let accPct = 0;
+        const donutGradient = splitTotal > 0 ? splitParts.map(p => {
+          const pct = (p.v / splitTotal) * 100;
+          const start = accPct;
+          accPct += pct;
+          return `${p.c} ${start.toFixed(2)}% ${accPct.toFixed(2)}%`;
+        }).join(", ") : "";
+
+        // SA103S boxes
+        const boxes = [
+          { l: "Cost of Goods / Parts", sub: "Parts + refurb devices", v: expByCategory.Parts + expByCategory.Device, c: "var(--ac)" },
+          { l: "Tools, Microscopes & Equipment", sub: "Capital · cash basis", v: expByCategory.Equipment, c: "#22d3ee" },
+          { l: "Postage, Packaging & Admin", sub: "General overheads", v: expByCategory.General, c: "#f59e0b" }
+        ];
+        const maxBox = Math.max(1, ...boxes.map(b => b.v));
+
+        // Ledger rows
+        const ledgerAll = [
+          ...yearJobs.map(j => ({ date: j.date, kind: "Income", ref: `Job #${j.id} · ${j.type}`, cat: "", desc: `${j.customer} — ${j.device}`, inc: +j.price || 0, exp: 0 })),
+          ...yearExpenses.map(e => ({ date: e.date, kind: "Expense", ref: e.cat || "General", cat: (e.cat || "General").trim(), desc: e.name, inc: 0, exp: +e.amount || 0 }))
+        ].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+        const ledger = ledgerAll
+          .filter(r => matchesQuery(r, searchQuery))
+          .filter(r => ledgerFilter === "All" || r.kind === (ledgerFilter === "Income" ? "Income" : "Expense"));
+
+        const expTotalPct = grossTurnover > 0 ? Math.min(100, (allowableExpenses / grossTurnover) * 100) : 0;
+        const allowanceFill = Math.min(100, (grossTurnover / Math.max(1, tradingAllowanceLimit)) * 100);
 
         return (
           <Fragment>
-            <div className="ah" style={{ marginTop: 0, marginBottom: 18 }}>
+            <div className="ah" style={{ marginTop: 0, marginBottom: 20 }}>
               <div className="ph" style={{ margin: 0 }}>
-                <h2><span className="gradient-emerald-text">UK HMRC Sole Trader Tax Tracker</span></h2>
-                <p>Cash-basis Self Assessment ledger ({periodLabel}) &amp; Trading Allowance optimiser.</p>
+                <h2><span className="gradient-emerald-text">HMRC Tax &amp; Self Assessment</span></h2>
+                <p>Cash-basis sole trader ledger ({periodLabel}), allowance optimiser &amp; tax set-aside estimate.</p>
               </div>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
                 <div className="pills" style={{ margin: 0 }}>
                   {availableYears.map(yr => (
-                    <button key={yr} type="button" className={`b${taxYear === yr ? " on" : ""}`} onClick={() => setTaxYear(yr)}>
-                      {yr}
-                    </button>
+                    <button key={yr} type="button" className={`b${taxYear === yr ? " on" : ""}`} onClick={() => setTaxYear(yr)}>{yr}</button>
                   ))}
                 </div>
                 <button type="button" className="b pri" onClick={() => onExportHmrcCsv(taxYear)}>
@@ -4741,50 +5358,174 @@
               </div>
             </div>
 
-            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", marginBottom: 18 }}>
+            <div className="stat-hero-grid">
+              <div className="hero-stat-card">
+                <div className="hero-stat-top">
+                  <small>Gross Turnover ({yearJobs.length} Jobs)</small>
+                  <span className={`chip ${needsSA ? "Pending" : "Completed"}`}>{needsSA ? "Above Allowance" : "Within Allowance"}</span>
+                </div>
+                <div className="hero-stat-val gradient-emerald-text">{fmtMoney(grossTurnover, cur)}</div>
+                <div className="mini-bar-track"><div className="mini-bar-fill" style={{ width: `${Math.max(4, allowanceFill)}%` }} /></div>
+                <div className="hero-stat-foot">
+                  <span>Allowance: <strong style={{ color: "var(--tx)" }}>{allowanceLabel}</strong></span>
+                  <span>{needsSA ? "Over by" : "Headroom"}: <strong style={{ color: "var(--ac)" }}>{fmtMoney(Math.abs(grossTurnover - tradingAllowanceLimit), cur)}</strong></span>
+                </div>
+              </div>
+
+              <div className="hero-stat-card">
+                <div className="hero-stat-top">
+                  <small>Allowable Expenses ({yearExpenses.length})</small>
+                  <span className="chip Completed">{expTotalPct.toFixed(0)}% of turnover</span>
+                </div>
+                <div className="hero-stat-val gradient-emerald-text">{fmtMoney(allowableExpenses, cur)}</div>
+                <div className="mini-bar-track"><div className="mini-bar-fill" style={{ width: `${Math.max(4, expTotalPct)}%` }} /></div>
+                <div className="hero-stat-foot">
+                  <span>Parts &amp; Devices: <strong style={{ color: "var(--tx)" }}>{fmtMoney(expByCategory.Parts + expByCategory.Device, cur)}</strong></span>
+                  <span>Equipment: <strong style={{ color: "var(--ac)" }}>{fmtMoney(expByCategory.Equipment, cur)}</strong></span>
+                </div>
+              </div>
+
+              <div className="hero-stat-card">
+                <div className="hero-stat-top">
+                  <small>Taxable Profit</small>
+                  <span className="chip Completed">{useTradingAllowance ? "Allowance Wins" : "Expenses Win"}</span>
+                </div>
+                <div className="hero-stat-val gradient-emerald-text">{fmtMoney(bestTaxableProfit, cur)}</div>
+                <div className="mini-bar-track"><div className="mini-bar-fill" style={{ width: `${Math.max(4, grossTurnover > 0 ? Math.min(100, (bestTaxableProfit / grossTurnover) * 100) : 0)}%` }} /></div>
+                <div className="hero-stat-foot">
+                  <span>Method: <strong style={{ color: "var(--tx)" }}>{recommendedMethod}</strong></span>
+                  <span>Saves: <strong style={{ color: "var(--ac)" }}>{fmtMoney(saving, cur)}</strong></span>
+                </div>
+              </div>
+
+              <div className="hero-stat-card">
+                <div className="hero-stat-top">
+                  <small>Est. Tax Bill</small>
+                  <span className={`chip ${totalTax <= 0 ? "Completed" : effRate < 20 ? "Pending" : "Cancelled"}`}>{effRate.toFixed(1)}% effective</span>
+                </div>
+                <div className="hero-stat-val gradient-emerald-text">{fmtMoney(totalTax, cur)}</div>
+                <div className="mini-bar-track"><div className="mini-bar-fill" style={{ width: `${Math.max(4, Math.min(100, effRate * 2.5))}%` }} /></div>
+                <div className="hero-stat-foot">
+                  <span>Income Tax: <strong style={{ color: "var(--tx)" }}>{fmtMoney(needsSA ? incomeTax : 0, cur)}</strong></span>
+                  <span>Class 4 NI: <strong style={{ color: "var(--ac)" }}>{fmtMoney(needsSA ? class4 : 0, cur)}</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))" }}>
+              <div className="card stat"><div className="sic"><Icon name="dollar" size={22} /></div><div><small>Cash After Costs &amp; Tax</small><b>{fmtMoney(cashAfterTax, cur)}</b></div></div>
+              <div className="card stat"><div className="sic"><Icon name="cal" size={22} /></div><div><small>Set Aside / Month</small><b>{fmtMoney(setAsidePerMonth, cur)}</b></div></div>
               <div className="card stat">
-                <div className="sic"><Icon name="dollar" size={20} /></div>
-                <div><small>Gross Turnover</small><b>{fmtMoney(grossTurnover, cur)}</b></div>
+                <div className="sic"><Icon name="shield" size={22} /></div>
+                <div>
+                  <small>Self Assessment</small>
+                  <b style={{ fontSize: 16, marginTop: 4 }} className={needsSA ? "amb" : "pos"}>{needsSA ? "Registration Required" : "Not Required"}</b>
+                  <div style={{ fontSize: "10.5px", color: "var(--mu)", marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>{needsSA ? `Register by ${regDeadline}` : `Under ${allowanceLabel} gross`}</div>
+                </div>
               </div>
               <div className="card stat">
-                <div className="sic"><Icon name="tag" size={20} /></div>
-                <div><small>Allowable Expenses</small><b>{fmtMoney(allowableExpenses, cur)}</b></div>
+                <div className="sic"><Icon name="landmark" size={22} /></div>
+                <div>
+                  <small>Return &amp; Payment Due</small>
+                  <b style={{ fontSize: 16, marginTop: 4 }}>{fileDeadline}</b>
+                  <div style={{ fontSize: "10.5px", color: "var(--mu)", marginTop: 2, fontFamily: "'JetBrains Mono', monospace" }}>{daysToFile > 0 ? `${daysToFile} days left` : "Deadline passed"}</div>
+                </div>
               </div>
-              <div className="card stat">
-                <div className="sic"><Icon name="shield" size={20} /></div>
-                <div><small>Trading Allowance</small><b>{fmtMoney(tradingAllowanceLimit, cur)}</b></div>
+            </div>
+
+            <div className="grid g2" style={{ margin: "14px 0 18px" }}>
+              <div className="card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6, flexWrap: "wrap", gap: 8 }}>
+                  <div>
+                    <h3 style={{ color: "var(--ac)" }}>Monthly Income vs Expenses</h3>
+                    <small>Cash-basis, April → March · hover a month for detail</small>
+                  </div>
+                  <div className="leg" style={{ margin: 0 }}>
+                    <span><u style={{ background: "var(--ac)" }} />Income</span>
+                    <span><u style={{ background: "rgba(244,63,94,0.8)" }} />Expenses</span>
+                  </div>
+                </div>
+                <div className="chart-bars-wrap">
+                  {monthKeys.map(k => {
+                    const row = monthly[k];
+                    const iH = row.inc > 0 ? Math.max(4, (row.inc / maxBar) * 100) : 0;
+                    const eH = row.exp > 0 ? Math.max(4, (row.exp / maxBar) * 100) : 0;
+                    const lbl = new Date(k + "-01").toLocaleString("en-GB", { month: "short", year: "2-digit" });
+                    return (
+                      <div key={k} className="chart-col" style={{ cursor: "default" }}>
+                        <div className="chart-tooltip">
+                          <div style={{ color: "var(--ac)", fontWeight: 800, marginBottom: 3 }}>{lbl} ({row.n} Jobs)</div>
+                          <div>Income: <b>{fmtMoney(row.inc, cur)}</b></div>
+                          <div>Expenses: <b style={{ color: "var(--red)" }}>{fmtMoney(row.exp, cur)}</b></div>
+                          <div>Net: <b style={{ color: "#22d3ee" }}>{fmtMoney(row.inc - row.exp, cur)}</b></div>
+                        </div>
+                        <div className="chart-bars-group">
+                          {iH > 0 && <div className="chart-bar rev" style={{ height: `${iH}%` }} />}
+                          {eH > 0 && <div className="chart-bar exp" style={{ height: `${eH}%` }} />}
+                        </div>
+                        <small style={{ marginTop: 6, fontFamily: "'JetBrains Mono', monospace", fontSize: "10.5px", color: "var(--mu)", fontWeight: 600 }}>
+                          {new Date(k + "-01").toLocaleString("en-GB", { month: "short" })}
+                        </small>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <div className="card stat">
-                <div className="sic"><Icon name="landmark" size={20} /></div>
-                <div><small>Net Taxable Profit</small><b className="pos">{fmtMoney(bestTaxableProfit, cur)}</b></div>
+
+              <div className="card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                  <div>
+                    <h3 style={{ color: "var(--ac)" }}>Where Your Turnover Goes</h3>
+                    <small>Costs, estimated tax &amp; what you keep</small>
+                  </div>
+                  <span className="chip Completed">{fmtMoney(grossTurnover, cur)} gross</span>
+                </div>
+                <div className="donut" style={{ marginBottom: 16 }}>
+                  <div className="ring" data-c={`${effRate.toFixed(0)}%`} style={{ width: 112, height: 112, background: `conic-gradient(${donutGradient || "var(--line) 0 100%"})` }} />
+                  <div style={{ flex: 1 }}>
+                    {splitParts.map(p => (
+                      <div key={p.l} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "6px 0", fontSize: "12.5px" }}>
+                        <span>
+                          <u style={{ display: "inline-block", width: 9, height: 9, borderRadius: 3, marginRight: 7, background: p.c, textDecoration: "none" }} />
+                          {p.l} <span style={{ color: "var(--mu)", fontSize: 11 }}>({splitTotal ? ((p.v / splitTotal) * 100).toFixed(0) : 0}%)</span>
+                        </span>
+                        <b style={{ fontSize: 13 }}>{fmtMoney(p.v, cur)}</b>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <p className="note" style={{ borderTop: "1px solid var(--line)", paddingTop: 10, margin: 0 }}>
+                  Centre = effective tax rate on profit. Estimate for England, Wales &amp; NI assuming no other income, student loan or payments on account — not tax advice.
+                </p>
               </div>
             </div>
 
             <div className="grid g2" style={{ marginBottom: 18 }}>
               <div className="card">
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 8 }}>
                   <div>
-                    <h3 style={{ color: "var(--ac)" }}>HMRC Trading Allowance vs Actual Expenses</h3>
-                    <small>UK Sole Trader deduction comparison for {taxYear}</small>
+                    <h3 style={{ color: "var(--ac)" }}>Trading Allowance vs Actual Expenses</h3>
+                    <small>Deduction comparison for {taxYear}</small>
                   </div>
                   <span className="chip Completed">{recommendedMethod} Wins</span>
                 </div>
                 <div className="bx" style={{ marginTop: 0 }}>
                   <div>
                     <small>Option A: Actual Expenses</small>
-                    <b className={allowableExpenses >= tradingAllowanceLimit ? "pos" : ""}>{fmtMoney(allowableExpenses, cur)}</b>
+                    <b className={!useTradingAllowance ? "pos" : ""}>{fmtMoney(allowableExpenses, cur)}</b>
                     <small style={{ marginTop: 4, textTransform: "none" }}>Taxable: {fmtMoney(taxableWithExpenses, cur)}</small>
                   </div>
                   <div>
                     <small>Option B: Flat Allowance</small>
-                    <b className={tradingAllowanceLimit > allowableExpenses ? "pos" : ""}>{fmtMoney(tradingAllowanceLimit, cur)}</b>
+                    <b className={useTradingAllowance ? "pos" : ""}>{fmtMoney(tradingAllowanceLimit, cur)}</b>
                     <small style={{ marginTop: 4, textTransform: "none" }}>Taxable: {fmtMoney(taxableWithAllowance, cur)}</small>
                   </div>
                 </div>
                 <p className="note" style={{ marginTop: 10 }}>
-                  {grossTurnover <= 1000
-                    ? `Your gross turnover (${fmtMoney(grossTurnover, cur)}) is within the £1,000 tax-free Trading Allowance—no Self Assessment return is normally required unless you choose to register.`
-                    : `Because gross turnover exceeds £1,000, HMRC requires Self Assessment registration by 5 October ${startYearNum + 1}. Claiming ${recommendedMethod} reduces your taxable profit to ${fmtMoney(bestTaxableProfit, cur)}.`}
+                  {!needsSA
+                    ? `Gross turnover (${fmtMoney(grossTurnover, cur)}) is within the ${allowanceLabel} Trading Allowance — no Self Assessment return is normally needed unless you choose to register.`
+                    : `Turnover is over ${allowanceLabel}, so register for Self Assessment by ${regDeadline}. Claiming ${recommendedMethod} brings taxable profit down to ${fmtMoney(bestTaxableProfit, cur)} and saves you ${fmtMoney(saving, cur)} of taxable profit.`}
+                  {grossTurnover >= 50000 && " Turnover is over £50,000, so Making Tax Digital for Income Tax may apply to you."}
                 </p>
               </div>
 
@@ -4792,81 +5533,55 @@
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                   <div>
                     <h3 style={{ color: "var(--ac)" }}>SA103S Allowable Expense Boxes</h3>
-                    <small>Cash-basis categorization for HMRC Self Assessment</small>
+                    <small>Cash-basis categorisation for your return</small>
                   </div>
                   <span className="chip">{fmtMoney(allowableExpenses, cur)} Total</span>
                 </div>
-                <div className="rank-item">
-                  <span><strong>Cost of Goods Bought for Resale / Parts</strong> (Parts + Refurb Devices)</span>
-                  <b className="pos">{fmtMoney(expByCategory.Parts + expByCategory.Device, cur)}</b>
-                </div>
-                <div className="rank-item">
-                  <span><strong>Tools, Microscopes &amp; Equipment</strong> (Capital / Cash-basis)</span>
-                  <b style={{ color: "var(--cyan)" }}>{fmtMoney(expByCategory.Equipment, cur)}</b>
-                </div>
-                <div className="rank-item" style={{ marginBottom: 0 }}>
-                  <span><strong>Postage, Packaging &amp; General Admin</strong></span>
-                  <b style={{ color: "var(--amb)" }}>{fmtMoney(expByCategory.General, cur)}</b>
-                </div>
+                {boxes.map(b => (
+                  <div key={b.l} className="hb" style={{ margin: "10px 0" }}>
+                    <div>
+                      <span style={{ fontWeight: 700, fontSize: 12 }}>{b.l} <span style={{ color: "var(--mu)", fontSize: 11 }}>({b.sub})</span></span>
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, fontWeight: 700, color: b.c }}>{fmtMoney(b.v, cur)}</span>
+                    </div>
+                    <i style={{ width: `${Math.max(2, (b.v / maxBox) * 100)}%`, background: b.c }} />
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 }}>
-                <div>
-                  <h3 style={{ color: "var(--ac)" }}>HMRC Cash-Basis Transaction Ledger ({taxYear})</h3>
-                  <small>All completed income &amp; allowable purchases between {periodLabel}</small>
+            <div className="ah" style={{ marginTop: 20, marginBottom: 14 }}>
+              <div className="pills" style={{ margin: 0 }}>
+                {[["All", ledgerAll.length], ["Income", yearJobs.length], ["Expenses", yearExpenses.length]].map(([f, n]) => (
+                  <button key={f} type="button" className={`b${ledgerFilter === f ? " on" : ""}`} onClick={() => setLedgerFilter(f)}>{f} ({n})</button>
+                ))}
+              </div>
+              <span className="chip Completed">{ledger.length} Tax Records · {taxYear}</span>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {ledger.length === 0 ? (
+                <div className="card" style={{ textAlign: "center", padding: 30, color: "var(--mu)" }}>No income or expenses recorded in the {taxYear} tax year match this filter.</div>
+              ) : ledger.map((row, idx) => (
+                <div key={idx} className="exp-card-item">
+                  <div className="exp-meta">
+                    <div className="exp-title">
+                      <span>{row.desc}</span>
+                      {row.kind === "Income"
+                        ? <span className="chip Completed">{row.ref}</span>
+                        : <span className={`exp-cat-badge ${row.cat}`}>{row.cat}</span>}
+                    </div>
+                    <small style={{ color: "var(--mu)", fontWeight: 600, fontFamily: "'JetBrains Mono', monospace" }}>
+                      {row.kind === "Income" ? "Income received" : "Expense paid"} on {fmtDate(row.date)}
+                    </small>
+                  </div>
+                  <div className="exp-amount-box">
+                    <small>{row.kind}</small>
+                    <b style={{ color: row.kind === "Income" ? "var(--ac)" : "var(--red)" }}>
+                      {row.kind === "Income" ? "+" : "−"}{fmtMoney(row.kind === "Income" ? row.inc : row.exp, cur)}
+                    </b>
+                  </div>
                 </div>
-                <span className="chip Completed">{yearJobs.length + yearExpenses.length} Tax Records</span>
-              </div>
-              <div className="wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Type</th>
-                      <th>Ref / Category</th>
-                      <th>Description / Client</th>
-                      <th>Income (+)</th>
-                      <th>Expense (−)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ...yearJobs.map(j => ({
-                        date: j.date,
-                        kind: "Income",
-                        ref: `Job #${j.id} (${j.type})`,
-                        desc: `${j.customer} — ${j.device}`,
-                        inc: +j.price || 0,
-                        exp: 0
-                      })),
-                      ...yearExpenses.map(e => ({
-                        date: e.date,
-                        kind: "Expense",
-                        ref: e.cat || "General",
-                        desc: e.name,
-                        inc: 0,
-                        exp: +e.amount || 0
-                      }))
-                    ]
-                      .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
-                      .map((row, idx) => (
-                        <tr key={idx}>
-                          <td>{fmtDate(row.date)}</td>
-                          <td><span className={`chip ${row.kind === "Income" ? "Completed" : "Cancelled"}`}>{row.kind}</span></td>
-                          <td>{row.ref}</td>
-                          <td>{row.desc}</td>
-                          <td className="pos">{row.inc > 0 ? fmtMoney(row.inc, cur) : "—"}</td>
-                          <td className="neg">{row.exp > 0 ? fmtMoney(row.exp, cur) : "—"}</td>
-                        </tr>
-                      ))}
-                    {yearJobs.length === 0 && yearExpenses.length === 0 && (
-                      <tr><td colSpan={6}>No income or expenses recorded in the {taxYear} UK tax year yet.</td></tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+              ))}
             </div>
           </Fragment>
         );
@@ -6867,6 +7582,14 @@
                         <button type="button" className={tempMobileMode ? "" : "on"} onClick={() => onToggleMobileMode(false)}>Off</button>
                       </div>
                     </label>
+                    <label>
+                      Animations
+                      <div className="seg" style={{ marginTop: 6 }}>
+                        <button type="button" className={s.animations !== false ? "on" : ""} onClick={() => onUpdateSettings({ animations: true })}>On</button>
+                        <button type="button" className={s.animations !== false ? "" : "on"} onClick={() => onUpdateSettings({ animations: false })}>Off</button>
+                      </div>
+                      <small style={{ display: "block", marginTop: 6, color: "var(--mu)" }}>Cascading entrances, hover spotlight, button ripples &amp; live pulses.</small>
+                    </label>
                   </div>
                 </div>
 
@@ -7074,12 +7797,17 @@
         const isSavingRef = useRef(false);
         const lastJsonRef = useRef("");
         const saveTimerRef = useRef(null);
+        // Tracks whether the AI tab has already been opened in the current page session (resets on refresh)
+        const aiOpenedThisSessionRef = useRef(false);
 
         const accentKey = ACCENT_THEMES[state.settings.accent] ? state.settings.accent : "neon";
 
         useEffect(() => {
           document.body.classList.toggle("light", !state.settings.dark);
           document.body.classList.toggle("mobile-mode", tempMobileMode);
+          const fxOn = state.settings.animations !== false;
+          document.body.classList.toggle("fx", fxOn);
+          document.body.classList.toggle("no-fx", !fxOn);
           const fKey = FONTS[state.settings.font] ? state.settings.font : "jakarta";
           document.documentElement.style.setProperty("--font-main", FONTS[fKey].family);
           const theme = ACCENT_THEMES[accentKey];
@@ -7087,7 +7815,27 @@
           document.documentElement.style.setProperty("--lime", theme.lime || "#a3e635");
           document.documentElement.style.setProperty("--grad", theme.grad);
           document.documentElement.style.setProperty("--bg-glow", theme.bgGlow);
-        }, [state.settings.dark, state.settings.font, accentKey, tempMobileMode]);
+        }, [state.settings.dark, state.settings.font, accentKey, tempMobileMode, state.settings.animations]);
+
+        // Ripple on buttons only while Animations are on (throttled DOM creation)
+        useEffect(() => {
+          if (state.settings.animations === false) return;
+          const onDown = e => {
+            const btn = e.target?.closest?.(".b, .ib, nav button, .seg button");
+            if (!btn || btn.disabled) return;
+            const r = btn.getBoundingClientRect();
+            const size = Math.max(r.width, r.height) * 2.1;
+            const dot = document.createElement("span");
+            dot.className = "fx-ripple";
+            dot.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - r.left - size / 2}px;top:${e.clientY - r.top - size / 2}px`;
+            btn.appendChild(dot);
+            setTimeout(() => dot.remove(), 600);
+          };
+          document.addEventListener("pointerdown", onDown, { passive: true });
+          return () => {
+            document.removeEventListener("pointerdown", onDown);
+          };
+        }, [state.settings.animations]);
 
         const persistState = useCallback(async (nextState, immediate = false) => {
           const json = JSON.stringify(nextState);
@@ -7208,14 +7956,36 @@
           el.classList.add("in");
         }, [tab, animTick]);
 
+        // Automatically create a fresh new chat the first time the AI tab is opened after a refresh
+        const createFreshAiChat = useCallback(() => {
+          const nowIso = new Date().toISOString();
+          const freshId = `chat-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+          const freshChat = {
+            id: freshId,
+            title: "New Chat",
+            createdAt: nowIso,
+            updatedAt: nowIso,
+            messages: []
+          };
+          updateState(s => ({
+            ...s,
+            activeAiChatId: freshId,
+            aiChats: [freshChat, ...(s.aiChats || [])]
+          }));
+        }, [updateState]);
+
         const switchTab = t => {
+          if (t === "ai" && !aiOpenedThisSessionRef.current) {
+            aiOpenedThisSessionRef.current = true;
+            createFreshAiChat();
+          }
           setTab(t);
           setSearchQuery("");
           setAnimTick(c => c + 1);
         };
 
         const handlePrimaryAction = () => {
-          if (tab === "ai") updateState(s => ({ ...s, activeAiChatId: null }));
+          if (tab === "ai") createFreshAiChat();
           else if (tab === "stock") setStockPickerOpen(true);
           else if (tab === "jobs" || tab === "dash") setEditJobModal({ open: true, index: null });
           else if (tab === "tax") exportHmrcCsv("2026/27");
@@ -7500,10 +8270,11 @@
           const convo = [...(existing ? existing.messages.filter(m => !m.isError) : []), userMsg];
 
           if (existing) {
+            const nextTitle = existing.title === "New Chat" || !existing.title ? clean.slice(0, 44) : existing.title;
             updateState(s => ({
               ...s,
               activeAiChatId: existing.id,
-              aiChats: (s.aiChats || []).map(c => c.id === existing.id ? { ...c, updatedAt: nowIso, messages: [...c.messages.filter(m => !m.isError), userMsg, modelMsg] } : c)
+              aiChats: (s.aiChats || []).map(c => c.id === existing.id ? { ...c, title: nextTitle, updatedAt: nowIso, messages: [...c.messages.filter(m => !m.isError), userMsg, modelMsg] } : c)
             }));
           } else {
             chatId = `chat-${Date.now()}`;
@@ -7524,8 +8295,8 @@
             const netJobPrf = doneJobs.reduce((s, j) => s + calcNet(j), 0);
             const totalExp = curState.expenses.reduce((s, e) => s + (+e.amount || 0), 0);
 
-            const modelName = "gemini-4-hydrogen";
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+            // Primary model first, then fallbacks if Google reports high demand / overload.
+            const modelChain = ["gemini-4-hydrogen", "gemini-3-flash-preview", "gemini-2.5-flash"];
 
             const sysPrompt = [
               `You are the Second Life UK Repair Business Analyst AI embedded in Tommy Boyle's Doncaster electronics repair & controller refurbishment workshop tracker. You have FULL permission to create, edit, update, and clean up tracker records when requested.`,
@@ -7546,21 +8317,56 @@
               `Live Database: ${JSON.stringify({ jobs: curState.jobs, expenses: curState.expenses, stock: curState.stock, diary: curState.diary, tests: curState.tests })}`
             ].filter(Boolean).join("\n");
 
-            const res = await fetch(url, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                systemInstruction: { parts: [{ text: sysPrompt }] },
-                contents: convo.map(m => ({ role: m.role === "model" ? "model" : "user", parts: [{ text: m.text }] })),
-                generationConfig: {
-                  thinkingConfig: {
-                    thinkingLevel: depth === "deep" ? "HIGH" : "LOW"
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+            const isBusy = (status, d) => {
+              const msg = (d?.error?.message || "").toLowerCase();
+              return status === 429 || status === 500 || status === 503 || status === 504 ||
+                d?.error?.status === "UNAVAILABLE" || d?.error?.status === "RESOURCE_EXHAUSTED" ||
+                msg.includes("high demand") || msg.includes("overloaded");
+            };
+            let data = null;
+            let lastErr = null;
+            outer:
+            for (let mi = 0; mi < modelChain.length; mi++) {
+              const modelName = modelChain[mi];
+              const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+              const genConfig = mi === 0
+                ? { thinkingConfig: { thinkingLevel: depth === "deep" ? "HIGH" : "LOW" } }
+                : {}; // fallback models may not support thinkingLevel
+              // up to 3 attempts per model with exponential backoff (1.5s, 3s)
+              for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                  const res = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      systemInstruction: { parts: [{ text: sysPrompt }] },
+                      contents: convo.map(m => ({ role: m.role === "model" ? "model" : "user", parts: [{ text: m.text }] })),
+                      generationConfig: genConfig
+                    })
+                  });
+                  let d = null;
+                  try { d = await res.json(); } catch { d = null; }
+                  if (res.ok && d?.candidates) { data = d; break outer; }
+                  lastErr = d;
+                  if (!isBusy(res.status, d)) {
+                    // Real error (bad key, bad request, etc). Model-not-found moves to next model, others stop.
+                    if (res.status === 404 && mi < modelChain.length - 1) continue outer;
+                    data = d || { error: { message: `Request failed (${res.status}).` } };
+                    break outer;
                   }
+                } catch (netErr) {
+                  lastErr = { error: { message: netErr?.message || "Network error." } };
                 }
-              })
-            });
-            const data = await res.json();
-            let rawReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || data?.error?.message || "No response returned.";
+                if (attempt < 2) await sleep(1500 * Math.pow(2, attempt));
+              }
+              // this model stayed busy; fall through to the next one
+            }
+            if (!data) {
+              data = lastErr || { error: { message: "The AI service is busy right now. Please try again in a minute." } };
+              if (isBusy(0, data)) data = { error: { message: "Gemini is under heavy load on every model I tried. Please wait a minute and resend." } };
+            }
+            let rawReply = (data?.candidates?.[0]?.content?.parts || []).filter(p => p.text && !p.thought).map(p => p.text).join("") || data?.error?.message || "No response returned.";
             let parsedActions = [];
 
             const actionMatch = rawReply.match(/<ACTION_JSON>([\s\S]*?)<\/ACTION_JSON>/);
@@ -7677,7 +8483,7 @@
                     />
                   )}
                   {tab === "dash" && <StatsView state={state} />}
-                  {tab === "tax" && <TaxView state={state} onExportHmrcCsv={exportHmrcCsv} />}
+                  {tab === "tax" && <TaxView state={state} searchQuery={searchQuery} onExportHmrcCsv={exportHmrcCsv} />}
                   {tab === "exp" && (
                     <ExpensesView
                       state={state}
@@ -7786,7 +8592,7 @@
                       streamingChatId={streamingChatId}
                       onSendMessage={handleSendAiMessage}
                       onSelectChat={id => updateState(s => ({ ...s, activeAiChatId: id }))}
-                      onNewChat={() => updateState(s => ({ ...s, activeAiChatId: null }))}
+                      onNewChat={createFreshAiChat}
                       onDeleteChat={id => updateState(s => ({ ...s, aiChats: (s.aiChats || []).filter(c => c.id !== id), activeAiChatId: s.activeAiChatId === id ? null : s.activeAiChatId }))}
                       onOpenSettings={mode => mode === "toggleAutoApply" ? updateState(s => ({ ...s, settings: { ...s.settings, aiAutoApply: s.settings.aiAutoApply === false } })) : setSettingsOpen(true)}
                       onApplyAiAction={handleApplyAiAction}
