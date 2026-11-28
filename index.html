@@ -911,6 +911,78 @@
         font-size: 16px;
         font-weight: 800;
       }
+      .job-viz-panel {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      body.light .job-viz-panel {
+        background: #f8fafc;
+      }
+      .job-viz-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .job-split-bar {
+        width: 100%;
+        height: 14px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        display: flex;
+        border: 1px solid var(--line);
+      }
+      body.light .job-split-bar {
+        background: rgba(15, 23, 42, 0.08);
+      }
+      .job-split-seg {
+        height: 100%;
+        transition: width 0.45s var(--ease-out);
+      }
+      .job-breakdown-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      @media (width <= 540px) {
+        .job-breakdown-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .job-breakdown-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 11px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        font-size: 12px;
+      }
+      body.light .job-breakdown-row {
+        background: #ffffff;
+      }
+      .job-breakdown-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--mu);
+        font-weight: 600;
+      }
+      .job-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
       .receipt-sheet {
         background: linear-gradient(160deg, #07140d, #040b07);
         border: 1px solid color-mix(in srgb, var(--ac) 35%, var(--line));
@@ -1099,6 +1171,7 @@
         padding: 18px 22px;
         box-shadow: 0 6px 24px #00000038;
       }
+      .jc { cursor: pointer; }
       .jc:hover, .sc:hover {
         background: var(--card-hover);
         border-color: color-mix(in srgb, var(--ac) 35%, transparent);
@@ -1793,7 +1866,6 @@
           }
           blankStreak = 0;
 
-          // Standardize list prefixes (-, *, +) to clean • bullets while keeping **bold** intact
           const bulletMatch = trimmed.match(/^(?:[-+•]|\*(?!\*))\s*(.+)$/);
           if (bulletMatch) {
             let body = bulletMatch[1].trim().replace(/[ \t]+/g, " ");
@@ -1804,7 +1876,6 @@
             trimmed = trimmed.replace(/^(\*\*)?([a-z])/, (_, b, ch) => (b || "") + ch.toUpperCase());
           }
 
-          // Tidy spacing around punctuation without altering any words
           trimmed = trimmed
             .replace(/\s+([,.;!?])/g, "$1")
             .replace(/([,;:])([A-Za-z0-9])/g, "$1 $2");
@@ -1856,13 +1927,11 @@
         return JSON.stringify(obj).toLowerCase().includes(term);
       };
 
-      // Extract seller name from legacy descriptions like "2x Dualsense Controllers - Caleb" or "3x PS5 Controllers - Dion"
       function inferSellerFromName(name) {
         if (!name) return "";
         const m = String(name).match(/\s[-–—]\s([A-Z][a-zA-Z0-9\s.'-]{1,28})$/);
         if (m) {
           const candidate = m[1].trim();
-          // Exclude fault/condition suffixes
           if (!/fault|drift|broken|stick|bundle|lot|spares|repair/i.test(candidate)) {
             return candidate;
           }
@@ -1981,7 +2050,6 @@
         return { active: true, status: "Active", cls: days <= 14 ? "soon" : "active", remText, fullText: `Warranty: ${remText} (${label})`, label, expDate: fmtDate(iso), days };
       }
 
-      // Safe Clipboard Copy with Fallback for Sandboxed Iframes
       async function copyTextSafe(text) {
         if (navigator.clipboard && window.isSecureContext) {
           try {
@@ -2371,7 +2439,7 @@
               key={j.id}
               className="jc"
               data-jv={j._i}
-              title="Click to inspect full job telemetry & financials"
+              title="Click to inspect full job telemetry, device buy cost & visual breakdown"
               onClick={e => {
                 if (!e.target.closest("button, a, input, select, textarea")) onOpenJobModal(j._i);
               }}
@@ -2504,7 +2572,7 @@
             {openJobs.length > 0 && closedJobs.length > 0 && <div className="sep">Processed &amp; Completed Jobs</div>}
             {closedJobs.map(renderJobCard)}
             {openJobs.length === 0 && closedJobs.length === 0 && <p className="note">No jobs match search criteria.</p>}
-            <p className="note">Stats count Completed jobs only. Click a status pill on an open job to cycle its status.</p>
+            <p className="note">Stats count Completed jobs only. Click any job card for buy cost &amp; visual telemetry, or click a status pill to cycle status.</p>
           </Fragment>
         );
       };
@@ -2573,7 +2641,6 @@
         const momRev = latestMo && prevMo && prevMo.r ? ((latestMo.r - prevMo.r) / prevMo.r) * 100 : 0;
         const momPrf = latestMo && prevMo && prevMo.p ? ((latestMo.p - prevMo.p) / Math.abs(prevMo.p)) * 100 : 0;
 
-        // Job Category Donut Breakdown
         const byTypeCount = {};
         const byTypeRev = {};
         done.forEach(j => {
@@ -2589,7 +2656,6 @@
           return `${CHART_COLORS[idx % 4]} ${start}% ${donutAcc}%`;
         }).join(", ");
 
-        // Hardware Specialization Mix
         const hwMix = {
           "PS5 TMR & Hall Effect": { n: 0, r: 0, p: 0 },
           "Xbox TMR & Hall Effect": { n: 0, r: 0, p: 0 },
@@ -2609,7 +2675,6 @@
         const hwEntries = Object.entries(hwMix).filter(([, v]) => v.n > 0).sort((a, b) => b[1].r - a[1].r);
         const maxHwRev = Math.max(1, ...hwEntries.map(([, v]) => v.r));
 
-        // Top Clients & Repeat Business
         const clientMap = {};
         done.forEach(j => {
           const name = (j.customer || "Walk-in").trim();
@@ -2961,12 +3026,10 @@
         );
       };
 
-      // =========================================================================
-      // EXPENSES VIEW — REDEFINED WITH DEVICES (BY SELLER) & OTHER EXPENSES TABS
-      // =========================================================================
+      // Expenses View
       const CAT_COLORS = { Parts: "var(--ac)", Equipment: "#22d3ee", Device: "#a3e635", General: "#f59e0b" };
       const ExpensesView = ({ state, searchQuery, onAddDevicePurchase, onEditExpense, onDeleteExpense, onInspectLinkedStock, onInspectDeviceExpense, onRenameSeller }) => {
-        const [expTab, setExpTab] = useState("devices"); // "devices" | "other"
+        const [expTab, setExpTab] = useState("devices");
         const [catFilter, setCatFilter] = useState("All");
         const [sellerFilter, setSellerFilter] = useState("All");
         const [copiedOrderId, setCopiedOrderId] = useState("");
@@ -3441,9 +3504,7 @@
         );
       };
 
-      // =========================================================================
-      // STOCK INVENTORY VIEW (PARTS, INBOUND DELIVERIES, DEVICES & SELLER GROUPING)
-      // =========================================================================
+      // Stock Inventory View
       const StockView = ({
         state,
         searchQuery,
@@ -3456,7 +3517,7 @@
         onJumpToExpense,
         onJumpToJob
       }) => {
-        const [scope, setScope] = useState("all"); // "all" | "parts" | "devices" | "inbound"
+        const [scope, setScope] = useState("all");
         const [groupBySeller, setGroupBySeller] = useState(false);
         const cur = state.settings.currency || "£";
         const hideSold = !!state.settings.hideSold;
@@ -3806,9 +3867,7 @@
         );
       };
 
-      // =========================================================================
-      // DIARY & TESTING LOGS VIEWS
-      // =========================================================================
+      // Diary & Testing Logs Views
       const DiaryView = ({ state, searchQuery, onEditDiary, onDeleteDiary, onOpenInvoice }) => {
         const [diaryFilter, setDiaryFilter] = useState("All");
         const today = todayIso();
@@ -3893,7 +3952,7 @@
             ) : list.map(entry => {
               const linkedJob = entry.job ? jobMap.get(String(entry.job)) : null;
               return (
-                <div key={entry._i} className="jc" style={{ padding: "18px 22px" }}>
+                <div key={entry._i} className="jc" style={{ padding: "18px 22px", cursor: "default" }}>
                   <div className="jr" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", flex: 1, minWidth: 200 }}>
                       {linkedJob ? (
@@ -4049,7 +4108,7 @@
               const hasProof = Boolean(t.drive && t.drive.trim());
 
               return (
-                <div key={t._i} className="jc" style={{ padding: "18px 22px" }}>
+                <div key={t._i} className="jc" style={{ padding: "18px 22px", cursor: "default" }}>
                   <div className="jr" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
                     <div style={{ flex: 1, minWidth: 220 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
@@ -4104,9 +4163,7 @@
         );
       };
 
-      // =========================================================================
-      // DEVICE DIAGNOSTICS VIEW (USB GAMEPAD, DUALSENSE WEBHID & CALIBRATION)
-      // =========================================================================
+      // Device Diagnostics View
       const useTweenedNumber = (target, ms = 600) => {
         const [val, setVal] = useState(target);
         useEffect(() => {
@@ -4139,18 +4196,18 @@
         const [activeHaptic, setActiveHaptic] = useState("");
         const [hapticMsg, setHapticMsg] = useState("Press any button on your controller to connect. Use DualSense WebHID for motors, L2/R2 stiff triggers & calibration.");
 
-        const [calStep, setCalStep] = useState("idle"); // "idle" | "center-guided" | "range"
+        const [calStep, setCalStep] = useState("idle");
         const [calCornerIdx, setCalCornerIdx] = useState(0);
         const [calHasUnsaved, setCalHasUnsaved] = useState(false);
         const [calMsg, setCalMsg] = useState("Connect DualSense via USB WebHID to calibrate stick center & range.");
 
-        const [micState, setMicState] = useState("idle"); // "idle" | "starting" | "live" | "error"
+        const [micState, setMicState] = useState("idle");
         const [micDevices, setMicDevices] = useState([]);
         const [micDeviceId, setMicDeviceId] = useState("");
         const [micDb, setMicDb] = useState(-90);
         const [micPeakDb, setMicPeakDb] = useState(-90);
         const [micMonitor, setMicMonitor] = useState(false);
-        const [micRecState, setMicRecState] = useState("idle"); // "idle" | "recording" | "ready"
+        const [micRecState, setMicRecState] = useState("idle");
         const [micClipUrl, setMicClipUrl] = useState("");
         const [micVerified, setMicVerified] = useState(false);
         const [micMsg, setMicMsg] = useState("Plug in the DualSense by USB and start the mic test to check the built-in microphone & grille.");
@@ -4727,7 +4784,6 @@
             setCalHasUnsaved(true);
             setCalMsg("Range Calibration applied to RAM! Sweep both sticks to verify circularity %, then click Save Permanently.");
           } catch (err) {
-            setCalStep("idle");
             setCalMsg("Failed to finish range calibration: " + (err?.message || "Failed to write the feature report."));
           }
         };
@@ -6015,9 +6071,7 @@
         );
       };
 
-      // =========================================================================
-      // UK HMRC SOLE TRADER TAX-YEAR, TRADING ALLOWANCE & SET-ASIDE ESTIMATOR
-      // =========================================================================
+      // UK HMRC Sole Trader Tax-Year, Trading Allowance & Set-Aside Estimator
       const TaxView = ({ state, searchQuery, onExportHmrcCsv }) => {
         const cur = state.settings.currency || "£";
         const [ledgerFilter, setLedgerFilter] = useState("All");
@@ -6599,9 +6653,7 @@
         );
       };
 
-      // =========================================================================
-      // CUSTOMER RECEIPT & WARRANTY CERTIFICATE GENERATOR MODAL
-      // =========================================================================
+      // Customer Receipt & Warranty Certificate Generator Modal
       const ReceiptModal = ({ jobIndex, state, onClose }) => {
         const dlgRef = useRef(null);
         const [lightPaper, setLightPaper] = useState(false);
@@ -7240,7 +7292,9 @@
         );
       };
 
-      // Job Inspection Modal
+      // =========================================================================
+      // ENHANCED JOB INSPECTION MODAL (DEVICE BUY COST, VISUAL BREAKDOWN & LOGS)
+      // =========================================================================
       const JobInspectModal = ({ jobIndex, state, onClose, onEdit, onOpenInvoice, onOpenReceipt }) => {
         const dlgRef = useRef(null);
         const job = jobIndex === null ? null : state.jobs[jobIndex];
@@ -7264,6 +7318,35 @@
         const totalCost = devCost + ptsCost;
         const net = calcNet(job);
         const margin = calcMargin(job);
+
+        const linkedStock = job.linkedStockId
+          ? state.stock.find(s => s.id === job.linkedStockId)
+          : (job.linkedStockName ? state.stock.find(s => s.name === job.linkedStockName) : null);
+
+        const linkedExpense = linkedStock?.linkedExpenseId
+          ? state.expenses.find(e => e.id === linkedStock.linkedExpenseId)
+          : null;
+
+        const completedJobs = state.jobs.filter(j => j.status === "Completed");
+        const avgRev = completedJobs.length
+          ? completedJobs.reduce((s, j) => s + (+j.price || 0), 0) / completedJobs.length
+          : 0;
+        const avgNet = completedJobs.length
+          ? completedJobs.reduce((s, j) => s + calcNet(j), 0) / completedJobs.length
+          : 0;
+
+        // Visual proportion calculation relative to total outflow/charged value
+        const visualBasis = Math.max(price, totalCost + Math.max(0, net), 1);
+        const devPct = Math.max(0, Math.min(100, (devCost / visualBasis) * 100));
+        const ptsPct = Math.max(0, Math.min(100, (ptsCost / visualBasis) * 100));
+        const netPct = Math.max(0, Math.min(100, (Math.max(0, net) / visualBasis) * 100));
+
+        const priceVsAvgPct = avgRev > 0 ? Math.min(160, (price / avgRev) * 100) : 100;
+        const netVsAvgPct = avgNet > 0 ? Math.max(0, Math.min(160, (net / avgNet) * 100)) : (net >= 0 ? 100 : 0);
+
+        const partsTotalQty = (job.parts || []).reduce((sum, p) => sum + (Number(p.qtyUsed) || 1), 0);
+        const jobDiary = state.diary.filter(d => d.job == job.id);
+        const jobTests = state.tests.filter(t => t.job == job.id);
 
         return (
           <dialog ref={dlgRef} className="lg-modal dlg-shell dlg-wide" onCancel={e => { e.preventDefault(); onClose(); }}>
@@ -7292,29 +7375,191 @@
                   </button>
                 </div>
               </div>
+
               <div className="dlg-body" style={{ gap: 14 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(135px,1fr))", gap: 10 }}>
-                  <div className="lg-tile"><small>Gross Revenue</small><b style={{ color: "var(--tx)" }}>{fmtMoney(price, cur)}</b></div>
-                  <div className="lg-tile"><small>Net Profit</small><b className={net >= 0 ? "pos" : "neg"}>{fmtMoney(net, cur)}</b></div>
-                  <div className="lg-tile"><small>Profit Margin</small><b className={margin >= 75 ? "pos" : margin >= 30 ? "amb" : "neg"}>{margin.toFixed(1)}%</b></div>
-                  <div className="lg-tile"><small>Direct Costs</small><b style={{ color: "var(--mu)" }}>{fmtMoney(totalCost, cur)}</b></div>
+                  <div className="lg-tile">
+                    <small>Device Bought For</small>
+                    <b style={{ color: devCost > 0 ? "#a3e635" : "var(--mu)" }}>{fmtMoney(devCost, cur)}</b>
+                    <small style={{ marginTop: 3, textTransform: "none", fontSize: 10 }}>
+                      {devCost > 0 ? (linkedStock?.seller ? `Seller: ${linkedStock.seller}` : "Sourced device cost") : "Customer / no buy cost"}
+                    </small>
+                  </div>
+                  <div className="lg-tile">
+                    <small>Parts Cost</small>
+                    <b style={{ color: ptsCost > 0 ? "#22d3ee" : "var(--mu)" }}>{fmtMoney(ptsCost, cur)}</b>
+                    <small style={{ marginTop: 3, textTransform: "none", fontSize: 10 }}>
+                      {partsTotalQty > 0 ? `${partsTotalQty} component${partsTotalQty === 1 ? "" : "s"} used` : "Logged parts spend"}
+                    </small>
+                  </div>
+                  <div className="lg-tile">
+                    <small>Charged Price</small>
+                    <b style={{ color: "var(--tx)" }}>{fmtMoney(price, cur)}</b>
+                    <small style={{ marginTop: 3, textTransform: "none", fontSize: 10 }}>
+                      Total cost: {fmtMoney(totalCost, cur)}
+                    </small>
+                  </div>
+                  <div className="lg-tile">
+                    <small>Net Profit &amp; Margin</small>
+                    <b className={net >= 0 ? "pos" : "neg"}>{fmtMoney(net, cur)}</b>
+                    <small style={{ marginTop: 3, textTransform: "none", fontSize: 10 }} className={margin >= 75 ? "pos" : margin >= 30 ? "amb" : "neg"}>
+                      {margin.toFixed(1)}% margin
+                    </small>
+                  </div>
                 </div>
+
+                {/* Visual Data Representation Panel */}
+                <div className="job-viz-panel">
+                  <div className="job-viz-top">
+                    <div>
+                      <h3 style={{ color: "var(--ac)" }}>Visual Financial &amp; Cost Breakdown</h3>
+                      <small style={{ color: "var(--mu)", fontSize: 11 }}>
+                        How {fmtMoney(price, cur)} charged splits across device buy price, parts, and net profit
+                      </small>
+                    </div>
+                    <span className={`chip ${net >= 0 ? "Completed" : "Cancelled"}`}>
+                      {price > 0 ? `${Math.round((Math.max(0, net) / price) * 100)}% Kept as Profit` : job.type}
+                    </span>
+                  </div>
+
+                  <div className="job-split-bar" title={`Device Cost: ${fmtMoney(devCost, cur)} · Parts Cost: ${fmtMoney(ptsCost, cur)} · Net Profit: ${fmtMoney(net, cur)}`}>
+                    {devPct > 0 && (
+                      <div
+                        className="job-split-seg"
+                        style={{ width: `${devPct}%`, background: "#a3e635" }}
+                        title={`Device Bought For: ${fmtMoney(devCost, cur)}`}
+                      />
+                    )}
+                    {ptsPct > 0 && (
+                      <div
+                        className="job-split-seg"
+                        style={{ width: `${ptsPct}%`, background: "#22d3ee" }}
+                        title={`Parts Cost: ${fmtMoney(ptsCost, cur)}`}
+                      />
+                    )}
+                    {netPct > 0 && (
+                      <div
+                        className="job-split-seg"
+                        style={{ width: `${netPct}%`, background: "var(--ac)" }}
+                        title={`Net Profit: ${fmtMoney(net, cur)}`}
+                      />
+                    )}
+                  </div>
+
+                  <div className="job-breakdown-grid">
+                    <div className="job-breakdown-row">
+                      <span className="job-breakdown-left">
+                        <span className="job-dot" style={{ background: "#a3e635" }} />
+                        Device Buy Cost
+                      </span>
+                      <b style={{ fontSize: 12.5, color: "#a3e635" }}>
+                        {fmtMoney(devCost, cur)} ({price > 0 ? `${Math.round((devCost / price) * 100)}%` : "—"})
+                      </b>
+                    </div>
+                    <div className="job-breakdown-row">
+                      <span className="job-breakdown-left">
+                        <span className="job-dot" style={{ background: "#22d3ee" }} />
+                        Parts &amp; Components
+                      </span>
+                      <b style={{ fontSize: 12.5, color: "#22d3ee" }}>
+                        {fmtMoney(ptsCost, cur)} ({price > 0 ? `${Math.round((ptsCost / price) * 100)}%` : "—"})
+                      </b>
+                    </div>
+                    <div className="job-breakdown-row">
+                      <span className="job-breakdown-left">
+                        <span className="job-dot" style={{ background: "var(--ac)" }} />
+                        Net Profit Earned
+                      </span>
+                      <b style={{ fontSize: 12.5 }} className={net >= 0 ? "pos" : "neg"}>
+                        {fmtMoney(net, cur)} ({price > 0 ? `${Math.round((net / price) * 100)}%` : "—"})
+                      </b>
+                    </div>
+                    <div className="job-breakdown-row">
+                      <span className="job-breakdown-left">
+                        <span className="job-dot" style={{ background: "#94a3b8" }} />
+                        Total Direct Outlay
+                      </span>
+                      <b style={{ fontSize: 12.5, color: "var(--tx)" }}>
+                        {fmtMoney(totalCost, cur)}
+                      </b>
+                    </div>
+                  </div>
+
+                  {/* Benchmark Comparison Against Completed Job Averages */}
+                  <div style={{ borderTop: "1px solid var(--line)", paddingTop: 10, display: "flex", flexDirection: "column", gap: 8 }}>
+                    <div className="hb" style={{ margin: 0 }}>
+                      <div>
+                        <span style={{ fontSize: 11.5, color: "var(--mu)", fontWeight: 700 }}>
+                          Charged vs Completed Avg ({fmtMoney(avgRev, cur)})
+                        </span>
+                        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, fontWeight: 700, color: "var(--tx)" }}>
+                          {Math.round(priceVsAvgPct)}% of avg ticket
+                        </span>
+                      </div>
+                      <i style={{ width: `${Math.min(100, Math.max(4, priceVsAvgPct))}%` }} />
+                    </div>
+                    <div className="hb" style={{ margin: 0 }}>
+                      <div>
+                        <span style={{ fontSize: 11.5, color: "var(--mu)", fontWeight: 700 }}>
+                          Net Profit vs Completed Avg ({fmtMoney(avgNet, cur)})
+                        </span>
+                        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11.5, fontWeight: 700 }} className={net >= avgNet ? "pos" : "amb"}>
+                          {avgNet > 0 ? `${Math.round(netVsAvgPct)}% of avg profit` : fmtMoney(net, cur)}
+                        </span>
+                      </div>
+                      <i style={{ width: `${Math.min(100, Math.max(2, netVsAvgPct))}%`, background: net >= 0 ? "var(--ac)" : "var(--red)" }} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sourcing & Stock Origin Context */}
+                {(linkedStock || linkedExpense || devCost > 0) && (
+                  <div className="receipt-box">
+                    <small>Device Sourcing &amp; Inventory Trail</small>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", marginTop: 4 }}>
+                      {linkedStock && (
+                        <span className="linked-pill">
+                          <Icon name="box" size={11} /> {linkedStock.name} · {linkedStock.status || "In Stock"}
+                        </span>
+                      )}
+                      {linkedStock?.seller && (
+                        <span className="exp-cat-badge Device">
+                          <Icon name="user" size={11} /> Seller: {linkedStock.seller}
+                        </span>
+                      )}
+                      {linkedStock?.platform && (
+                        <span className="platform-pill">{linkedStock.platform}</span>
+                      )}
+                      {linkedExpense && (
+                        <span className="chip">
+                          Order: {linkedExpense.name} ({fmtMoney(linkedExpense.amount, cur)} on {fmtDate(linkedExpense.date)})
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {job.notes && (
                   <div className="nb" style={{ marginTop: 0 }}>
                     <small>Internal Note</small>
                     <span dangerouslySetInnerHTML={{ __html: formatRich(job.notes, true) }} />
                   </div>
                 )}
+
                 <JobTelemetryDetails job={job} state={state} onOpenInvoice={onOpenInvoice} />
+
+                {jobDiary.length === 0 && jobTests.length === 0 && !job.parts?.length && (
+                  <p className="note" style={{ marginTop: 0 }}>
+                    No linked parts, diary entries, or QA test logs recorded for Job #{job.id} yet.
+                  </p>
+                )}
               </div>
             </div>
           </dialog>
         );
       };
 
-      // =========================================================================
-      // DEVICE EXPENSE DETAIL MODAL
-      // =========================================================================
+      // Device Expense Detail Modal
       const DeviceExpenseDetailModal = ({ expIndex, state, onClose, onEditExpense, onDeleteExpense, onInspectLinkedStock }) => {
         const dlgRef = useRef(null);
         const exp = expIndex === null || expIndex === undefined ? null : state.expenses[expIndex];
@@ -7503,9 +7748,7 @@
         );
       };
 
-      // =========================================================================
-      // JOB CREATE / EDIT MODAL — INCLUDES IN-STOCK DEVICE SELECTOR & AUTO-FILL
-      // =========================================================================
+      // Job Create / Edit Modal
       const JobEditModal = ({ open, jobIndex, state, onClose, onSaveJob, onRequestDelete, onOpenInvoice }) => {
         const dlgRef = useRef(null);
         const isNew = jobIndex === null;
@@ -7929,7 +8172,7 @@
         );
       };
 
-      // Entity Add/Edit Modal (with Auto-Split Stock Creation for Device Expenses & Auto-Formatting for Diary/QA Logs)
+      // Entity Add/Edit Modal
       const EntityEditModal = ({ kind, editIndex, presetCat, state, onClose, onSaveEntity, onRequestDelete }) => {
         const dlgRef = useRef(null);
         const [form, setForm] = useState({});
@@ -9168,7 +9411,6 @@
           a.click();
         };
 
-        // Cycle Job Status & Sync Linked Stock Device Status
         const handleCycleStatus = idx => {
           const nextMap = { Pending: "In Progress", "In Progress": "Completed", Completed: "Cancelled", Cancelled: "Pending" };
           updateState(prev => {
@@ -9247,7 +9489,6 @@
           });
         };
 
-        // Gemini AI Chat Handler (Full Read/Write Workshop Agent)
         const executeAiActionsOnState = (prev, actionsList) => {
           let next = {
             ...prev,
